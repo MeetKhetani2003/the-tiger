@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+/* General Sans is not on Google Fonts typically, so using outfit or a standard fallback for secondary, but I will try to use local or just provide fallback */
+@font-face {
+  font-family: 'General Sans';
+  src: url('https://cdn.fontshare.com/wf/KWQ5PUDCUNFZZPND6B2V6V7YJHTZFYU3/SUTGJQWQOY6V4H7B2F6C7DNDL54T5A5Z/TXYK2Q2WQ36X4F2J4G7A4E4J5G4J4J4J.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+:root {
+  /* Warm Luxury Color Palette */
+  --color-bg-primary: #F6F4EF;
+  --color-bg-secondary: #FAF8F3;
+  --color-luxury-beige: #E9E1D3;
+  --color-soft-sand: #F0EBE2;
+  
+  --color-primary-blue: #1E4DB7;
+  --color-secondary-blue: #3B82F6;
+  
+  --color-text: #0F172A;
+  --color-text-muted: #64748B;
+  
+  --color-cards: #FFFFFF;
+  --color-border: #E9E1D3;
+
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-secondary: 'General Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing System */
+  --max-width-container: 1440px;
+  --max-width-content: 650px;
+  
+  --padding-hero: 180px;
+  --padding-section: 140px;
+  
+  --gap-grid: 32px;
+  --gap-card: 32px;
+  --spacing-element: 32px;
+  
+  /* Shadows */
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.content-narrow {
+  max-width: var(--max-width-content);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  font-size: 1.125rem;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-blue);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(30, 77, 183, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-secondary-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(30, 77, 183, 0.3);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary-blue);
+  background-color: #fff;
+}
+
+/* Typography Scale */
+.hero-heading {
+  font-size: clamp(4.5rem, 8vw, 7.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+.section-heading {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-lg {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.mt-element { margin-top: var(--spacing-element); }
+.mb-element { margin-bottom: var(--spacing-element); }
+.pt-section { padding-top: var(--padding-section); }
+.pb-section { padding-bottom: var(--padding-section); }
+.py-section { padding-top: var(--padding-section); padding-bottom: var(--padding-section); }

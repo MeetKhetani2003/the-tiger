@@ -1,0 +1,133 @@
+.about {
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+}
+
+.text-primary {
+  color: var(--color-primary-blue);
+}
+
+.about-split {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.about-content {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.about-values {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.value-box {
+  display: flex;
+  gap: 24px;
+}
+
+.value-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-cards);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.value-icon {
+  color: var(--color-primary-blue);
+}
+
+.value-title {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.value-desc {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.about-visual {
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+}
+
+.about-img-mask {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 700px;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  transform-origin: center;
+}
+
+.about-experience {
+  position: absolute;
+  bottom: 40px;
+  left: -40px;
+  background-color: var(--color-primary-blue);
+  color: #fff;
+  padding: 32px 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 15px 30px rgba(30, 77, 183, 0.3);
+}
+
+.exp-number {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.exp-text {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+  .about-split {
+    flex-direction: column;
+    gap: 60px;
+  }
+  
+  .about-content, .about-visual {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .about-img-mask {
+    height: 500px;
+  }
+  
+  .about-experience {
+    left: 20px;
+    bottom: -20px;
+  }
+}
