@@ -1,7 +1,7 @@
 import PageHero from '@/components/layout/PageHero';
 
 export const metadata = {
-  title: "Careers | Maha Shiva Security",
+  title: "Careers | Maa Shiva Services Pvt. Ltd.",
   description: "Join our elite team of professional security personnel and command center operators.",
 };
 
@@ -11,7 +11,7 @@ export default function CareersPage() {
       <PageHero 
         title="Join Our Elite Team"
         description="We are always looking for disciplined, highly-trained professionals to join our ranks in physical security, operations, and facility management."
-        bgImage="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1920"
+        bgImage="/guard-corporate.png"
         breadcrumbs={[ { label: 'Careers', href: '/careers' } ]}
       />
       <div className="py-section" style={{ minHeight: '50vh', backgroundColor: 'var(--color-bg-primary)' }}>

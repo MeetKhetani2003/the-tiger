@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Shield, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './Navbar.css';
 
@@ -45,10 +45,10 @@ const Navbar = () => {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link href="/" className="logo-area">
-          <Shield className="logo-icon" size={32} />
+          <img src="/logo.png" alt="Maa Shiva Logo" className="logo-img" />
           <div className="logo-text">
-            <span className="logo-primary">MAHA SHIVA</span>
-            <span className="logo-secondary">SECURITY SERVICES</span>
+            <span className="logo-primary">MAA SHIVA</span>
+            <span className="logo-secondary">SERVICES PVT. LTD</span>
           </div>
         </Link>
 

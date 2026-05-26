@@ -10,19 +10,19 @@ const slides = [
     id: 1,
     title: "Professional Corporate Security",
     subtitle: "Safeguarding your enterprise assets, personnel, and intellectual property with world-class protection services.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920",
+    image: "/guard-corporate.png",
   },
   {
     id: 2,
     title: "Industrial Complex Protection",
     subtitle: "Robust 24/7 monitoring and physical security deployments for manufacturing plants and critical infrastructure.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1920",
+    image: "/guard-industrial.png",
   },
   {
     id: 3,
     title: "Residential Estate Safety",
     subtitle: "Discreet, highly-trained personnel ensuring absolute peace of mind for premium residential communities.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1920",
+    image: "/guard-residential.png",
   }
 ];
 

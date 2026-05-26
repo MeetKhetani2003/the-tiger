@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Maha Shiva Security Services | Premium Enterprise Protection",
+  title: "Maa Shiva Services Pvt. Ltd. | Premium Enterprise Protection",
   description: "Providing world-class security personnel, surveillance support, and facility management for corporate, industrial, and residential sectors across India.",
   keywords: "Security Guard Services, Security Services Company, Corporate Security Services, Industrial Security Services, Facility Management Services, Professional Security Services",
 };
@@ -25,19 +25,20 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SecurityService",
-              "name": "Maha Shiva Security Services Pvt. Ltd.",
-              "url": "https://mahashivasecurity.com",
-              "logo": "https://mahashivasecurity.com/logo.png",
+              "name": "Maa Shiva Services Pvt. Ltd.",
+              "url": "https://maashivaservices.com",
+              "logo": "https://maashivaservices.com/logo.png",
               "description": "Providing world-class security personnel, surveillance support, and facility management across India.",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Enterprise Sector, Business District",
-                "addressLocality": "New Delhi",
+                "streetAddress": "Railway Station, 277, Exchange Modha, Shakti Vihar Colony",
+                "addressLocality": "Faizabad",
+                "addressRegion": "Uttar Pradesh",
                 "addressCountry": "IN",
-                "postalCode": "110001"
+                "postalCode": "224001"
               },
-              "telephone": "+919876543210",
-              "email": "info@mahashivasecurity.com",
+              "telephone": "+919415610453",
+              "email": "info@maashivaservices.com",
               "priceRange": "$$",
               "areaServed": "India"
             }),

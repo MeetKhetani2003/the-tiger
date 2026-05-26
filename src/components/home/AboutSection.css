@@ -86,13 +86,13 @@
   bottom: 40px;
   left: -40px;
   background-color: var(--color-primary-blue);
-  color: #fff;
+  color: #05080E; /* Dark slate text on gold background */
   padding: 32px 40px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 15px 30px rgba(30, 77, 183, 0.3);
+  box-shadow: 0 15px 30px rgba(252, 202, 9, 0.25);
 }
 
 .exp-number {

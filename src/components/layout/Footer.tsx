@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Shield, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -8,11 +8,11 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link href="/" className="logo-area" style={{ color: 'var(--color-bg-primary)' }}>
-              <Shield className="logo-icon" size={48} color="var(--color-secondary-blue)" />
+            <Link href="/" className="logo-area">
+              <img src="/logo.png" alt="Maa Shiva Logo" className="logo-img footer-logo-img" />
               <div className="logo-text">
-                <span className="logo-primary" style={{ color: 'var(--color-bg-primary)' }}>MAHA SHIVA</span>
-                <span className="logo-secondary" style={{ color: 'var(--color-luxury-beige)' }}>SECURITY SERVICES</span>
+                <span className="logo-primary">MAA SHIVA</span>
+                <span className="logo-secondary">SERVICES PVT. LTD</span>
               </div>
             </Link>
             <p className="footer-desc mt-element">
@@ -50,23 +50,23 @@ const Footer = () => {
             <div className="contact-item">
               <Phone size={20} className="contact-icon" />
               <div>
-                <span>+91 98765 43210</span><br/>
+                <span>+91 94156 10453</span><br/>
                 <span style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>24/7 Command Center</span>
               </div>
             </div>
             <div className="contact-item">
               <Mail size={20} className="contact-icon" />
-              <span>info@mahashivasecurity.com</span>
+              <span>info@maashivaservices.com</span>
             </div>
             <div className="contact-item align-start">
               <MapPin size={24} className="contact-icon" />
-              <span>123 Enterprise Sector, Business District, New Delhi, India 110001</span>
+              <span>Railway Station, 277, Exchange Modha, Shakti Vihar Colony, Faizabad, Uttar Pradesh 224001</span>
             </div>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Maha Shiva Security Services Pvt. Ltd. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Maa Shiva Services Pvt. Ltd. All rights reserved.</p>
           <div className="footer-legal">
             <Link href="/privacy-policy">Privacy Policy</Link>
             <Link href="/terms-of-service">Terms of Service</Link>

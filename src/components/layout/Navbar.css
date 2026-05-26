@@ -10,12 +10,12 @@
 }
 
 .navbar.scrolled {
-  background-color: rgba(246, 244, 239, 0.95); /* var(--color-bg-primary) */
+  background-color: rgba(10, 10, 10, 0.95); /* var(--color-bg-primary) */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   padding: 20px 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(233, 225, 211, 0.5); /* var(--color-border) */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(30, 41, 59, 0.5); /* var(--color-border) */
 }
 
 .navbar-container {
@@ -31,9 +31,15 @@
   text-decoration: none;
 }
 
-.logo-icon {
-  color: var(--color-primary-blue);
-  stroke-width: 2.5;
+.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-area:hover .logo-img {
+  transform: scale(1.05);
 }
 
 .logo-text {
@@ -52,7 +58,7 @@
 }
 
 .navbar.scrolled .logo-primary {
-  color: var(--color-text);
+  color: #ffffff;
 }
 
 .logo-secondary {
@@ -78,7 +84,7 @@
 .nav-link {
   font-family: var(--font-secondary);
   font-weight: 600;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
   position: relative;
   transition: color 0.3s ease;
@@ -109,11 +115,11 @@
 }
 
 .nav-link:hover, .nav-link.active {
-  color: #ffffff;
+  color: #05080E; /* Dark text for gold background pill */
 }
 
 .navbar.scrolled .nav-link:hover, .navbar.scrolled .nav-link.active {
-  color: #ffffff;
+  color: #05080E;
 }
 
 .mobile-menu-btn, .mobile-close {

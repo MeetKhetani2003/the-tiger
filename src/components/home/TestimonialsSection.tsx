@@ -11,7 +11,7 @@ const testimonials = [
     client: "Global Tech Solutions",
     author: "Rahul M., VP of Operations",
     rating: 5,
-    text: "Maha Shiva Security has completely transformed our campus safety protocol. Their personnel are highly professional, punctual, and handle crisis situations with extreme competence.",
+    text: "Maa Shiva Services has completely transformed our campus safety protocol. Their personnel are highly professional, punctual, and handle crisis situations with extreme competence.",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200"
   },
   {
@@ -19,7 +19,7 @@ const testimonials = [
     client: "Prestige Estates",
     author: "Anjali S., Facility Manager",
     rating: 5,
-    text: "We switched to Maha Shiva two years ago and the difference is night and day. The guards are well-trained, polite to residents, and extremely vigilant during night shifts.",
+    text: "We switched to Maa Shiva Services two years ago and the difference is night and day. The guards are well-trained, polite to residents, and extremely vigilant during night shifts.",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
   },
   {
@@ -27,7 +27,7 @@ const testimonials = [
     client: "Apex Manufacturing",
     author: "Vikram D., Plant Head",
     rating: 5,
-    text: "Industrial security requires specialized training, and Maha Shiva delivers exactly that. Their loss prevention strategies have saved us millions. Highly recommended.",
+    text: "Industrial security requires specialized training, and Maa Shiva Services delivers exactly that. Their loss prevention strategies have saved us millions. Highly recommended.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
     client: "Citywalk Mall",
     author: "Priya K., Center Director",
     rating: 5,
-    text: "Managing a daily footfall of 50,000+ requires immense coordination. The Maha Shiva team handles access control and emergency response flawlessly.",
+    text: "Managing a daily footfall of 50,000+ requires immense coordination. The Maa Shiva Services team handles access control and emergency response flawlessly.",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200"
   }
 ];

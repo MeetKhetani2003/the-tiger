@@ -32,8 +32,8 @@ const ContactCTASection = () => {
               <a href="/contact" className="btn btn-primary">
                 Schedule Consultation <ArrowRight size={20} style={{ marginLeft: '8px' }} />
               </a>
-              <a href="tel:+919876543210" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>
-                Call 24/7 Command Center
+              <a href="tel:+919415610453" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>
+                Call +91 94156 10453
               </a>
             </div>
           </div>

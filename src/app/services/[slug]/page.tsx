@@ -10,19 +10,21 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const service = servicesData.find((s) => s.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const service = servicesData.find((s) => s.slug === slug);
   if (!service) {
     return { title: 'Service Not Found' };
   }
   return {
-    title: `${service.title} | Maha Shiva Security`,
+    title: `${service.title} | Maa Shiva Services Pvt. Ltd.`,
     description: service.shortDescription,
   };
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const service = servicesData.find((s) => s.slug === params.slug);
+export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const service = servicesData.find((s) => s.slug === slug);
 
   if (!service) {
     notFound();
@@ -77,7 +79,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <a href="/contact" className="btn btn-primary" style={{ textAlign: 'center', width: '100%' }}>Request Quote</a>
-                  <a href="tel:+919876543210" className="btn btn-outline" style={{ textAlign: 'center', width: '100%' }}>Call +91 98765 43210</a>
+                  <a href="tel:+919415610453" className="btn btn-outline" style={{ textAlign: 'center', width: '100%' }}>Call +91 94156 10453</a>
                 </div>
               </div>
             </div>

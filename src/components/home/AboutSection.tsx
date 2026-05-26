@@ -50,7 +50,7 @@ const AboutSection = () => {
             </motion.h2>
             
             <motion.p variants={fadeUpItem} className="text-lg mb-element">
-              Maha Shiva Security Services Pvt. Ltd. is a premier provider of comprehensive security and facility management solutions. With decades of combined operational experience, we deliver uncompromising protection for national and multinational organizations.
+              Maa Shiva Services Pvt. Ltd. is a premier provider of comprehensive security and facility management solutions. With decades of combined operational experience, we deliver uncompromising protection for national and multinational organizations.
             </motion.p>
             
             <div className="about-values">
@@ -90,8 +90,8 @@ const AboutSection = () => {
             <div className="about-img-mask">
               <motion.img 
                 style={{ y: imageY }}
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1000" 
-                alt="Corporate Security Officer" 
+                src="/guard-group.png" 
+                alt="Corporate Security Officers" 
                 className="about-img"
               />
             </div>

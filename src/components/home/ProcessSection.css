@@ -24,7 +24,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-primary-blue);
-  background-color: rgba(30, 77, 183, 0.1);
+  background-color: rgba(252, 202, 9, 0.15); /* Gold badge glow */
   padding: 8px 16px;
   border-radius: 4px;
   margin-bottom: 24px;
@@ -82,7 +82,7 @@
 .process-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(30, 77, 183, 0.2);
+  border-color: rgba(252, 202, 9, 0.3); /* Gold border hover glow */
 }
 
 .process-card-header {
@@ -97,7 +97,7 @@
   font-family: var(--font-heading);
   font-size: 3.5rem;
   font-weight: 800;
-  color: rgba(30, 77, 183, 0.1); /* Very subtle primary blue */
+  color: rgba(252, 202, 9, 0.15); /* Gold transparent glow */
   line-height: 1;
 }
 
@@ -116,7 +116,7 @@
 
 .process-card:hover .process-icon-box {
   background-color: var(--color-primary-blue);
-  color: #fff;
+  color: #05080E; /* Dark slate text on gold */
   transform: scale(1.1);
 }
 

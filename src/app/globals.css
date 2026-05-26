@@ -10,20 +10,20 @@
 }
 
 :root {
-  /* Warm Luxury Color Palette */
-  --color-bg-primary: #F6F4EF;
-  --color-bg-secondary: #FAF8F3;
-  --color-luxury-beige: #E9E1D3;
-  --color-soft-sand: #F0EBE2;
+  /* Premium Dark Charcoal, Gold, & Red Luxury Brand Theme */
+  --color-bg-primary: #0A0A0A; /* Rich deep neutral charcoal black */
+  --color-bg-secondary: #121212; /* Elegant neutral secondary dark */
+  --color-luxury-beige: #181818;
+  --color-soft-sand: #242424;
   
-  --color-primary-blue: #1E4DB7;
-  --color-secondary-blue: #3B82F6;
+  --color-primary-blue: #fcca09; /* Primary brand color: Logo Gold/Yellow */
+  --color-secondary-blue: #da3e28; /* Accent brand color: Logo Red */
   
-  --color-text: #0F172A;
-  --color-text-muted: #64748B;
+  --color-text: #F8FAFC;
+  --color-text-muted: #A3A3A3; /* Sleek neutral gray muted text */
   
-  --color-cards: #FFFFFF;
-  --color-border: #E9E1D3;
+  --color-cards: #141414; /* True dark card color without blue tint */
+  --color-border: #222222; /* Clean charcoal border */
 
   /* Typography */
   --font-heading: 'Outfit', sans-serif;
@@ -41,10 +41,12 @@
   --gap-card: 32px;
   --spacing-element: 32px;
   
-  /* Shadows */
-  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.03);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+  /* Shadows & Glows */
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.6);
+  --gold-glow: 0 0 25px rgba(252, 202, 9, 0.2);
+  --red-glow: 0 0 25px rgba(218, 62, 40, 0.2);
 }
 
 html, body {
@@ -97,14 +99,15 @@ a {
 
 .btn-primary {
   background-color: var(--color-primary-blue);
-  color: #fff;
-  box-shadow: 0 10px 25px rgba(30, 77, 183, 0.2);
+  color: #05080E; /* Dark charcoal text for gold background */
+  box-shadow: 0 10px 25px rgba(252, 202, 9, 0.25);
 }
 
 .btn-primary:hover {
   background-color: var(--color-secondary-blue);
+  color: #ffffff; /* White text on hover red background */
   transform: translateY(-2px);
-  box-shadow: 0 15px 35px rgba(30, 77, 183, 0.3);
+  box-shadow: 0 15px 35px rgba(218, 62, 40, 0.35);
 }
 
 .btn-outline {
@@ -115,7 +118,8 @@ a {
 
 .btn-outline:hover {
   border-color: var(--color-primary-blue);
-  background-color: #fff;
+  background-color: var(--color-primary-blue);
+  color: #05080E;
 }
 
 /* Typography Scale */

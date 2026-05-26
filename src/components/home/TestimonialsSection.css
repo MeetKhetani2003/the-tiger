@@ -132,7 +132,7 @@
 
 .carousel-btn:hover {
   background-color: var(--color-primary-blue);
-  color: #fff;
+  color: #05080E; /* Dark slate text on gold background */
   border-color: var(--color-primary-blue);
   transform: scale(1.05);
 }
@@ -146,7 +146,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: rgba(15, 23, 42, 0.2);
+  background-color: rgba(255, 255, 255, 0.25); /* Light color for dark theme compatibility */
   border: none;
   cursor: pointer;
   padding: 0;
