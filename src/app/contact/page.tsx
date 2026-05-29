@@ -12,7 +12,7 @@ export default function ContactPage() {
       <PageHero 
         title="Secure Your Enterprise"
         description="Our command center is operational 24/7. Reach out for a comprehensive threat assessment or immediate deployment requests."
-        bgImage="/guard-patrol.png"
+        bgImage="/home-sl3.jpeg"
         breadcrumbs={[ { label: 'Contact', href: '/contact' } ]}
       />
 

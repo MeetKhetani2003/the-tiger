@@ -50,7 +50,7 @@ export default function IndustriesPage() {
       <PageHero 
         title="Industries We Protect"
         description="Specialized security protocols designed for the unique regulatory, safety, and operational challenges of diverse sectors."
-        bgImage="/guard-corporate.png"
+        bgImage="/home-sl1.jpeg"
         breadcrumbs={[ { label: 'Industries', href: '/industries' } ]}
       />
       

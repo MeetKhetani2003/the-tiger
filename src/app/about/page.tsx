@@ -13,19 +13,19 @@ const leaders = [
     name: "Commandant S. N. Singh",
     role: "Founder & Managing Director",
     desc: "Ex-Indian Army Special Forces Captain with over 25 years of active strategic security experience. He shapes the rigorous training programs and command center discipline.",
-    image: "/guard-vip.png" // Local high-fidelity professional guard asset
+    image: "/vip-sec.jpeg" // Local high-fidelity professional guard asset
   },
   {
     name: "Mrs. Meera Singh",
     role: "Co-Founder & Director of Finance",
     desc: "Oversees corporate compliance, financial ethics, and sustainable operations, ensuring Maa Shiva Services remains a highly trusted institutional partner.",
-    image: "/guard-corporate.png"
+    image: "/corporate-sec.jpeg"
   },
   {
     name: "Inspector Rajeev Kumar",
     role: "Head of Operations & Logistics",
     desc: "Ex-Police Department Officer overseeing dispatch operations, immediate response units, and government-liaison procedures across Uttar Pradesh.",
-    image: "/guard-industrial.png"
+    image: "/industrial-sec.jpeg"
   }
 ];
 
@@ -58,11 +58,28 @@ export default function AboutPage() {
       <PageHero 
         title="About Our Enterprise"
         description="Setting the benchmark for professional security and facility management across India through discipline, technology, and rigorous training."
-        bgImage="/guard-group.png"
+        bgImage="/home-sl1.jpeg"
         breadcrumbs={[ { label: 'About Us', href: '/about' } ]}
       />
       
       <AboutSection />
+
+      {/* SEO Vision & Mission Block */}
+      <section className="py-section" style={{ backgroundColor: 'var(--color-bg-primary)', borderTop: '1px solid var(--color-border)' }}>
+        <div className="container">
+          <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+            <h2 className="section-heading" style={{ marginBottom: '24px' }}>
+              Our Vision: <span className="text-primary">Leading Security Services in India</span>
+            </h2>
+            <p className="text-lg" style={{ color: 'var(--color-text-muted)', marginBottom: '24px', lineHeight: '1.8' }}>
+              Since our inception, Maa Shiva Services Pvt. Ltd. has strived to become the <strong>top security agency in India</strong>. Our mission is to provide an unbreachable shield of safety through our highly trained <strong>security guards</strong>, specialized <strong>bouncer services</strong>, and elite <strong>commando security services</strong>. 
+            </p>
+            <p className="text-lg" style={{ color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
+              We understand that true security requires a blend of physical presence and strategic intelligence. That's why our professional security services extend beyond mere guarding to include comprehensive <strong>corporate security</strong>, <strong>industrial protection</strong>, and <strong>facility management services</strong>. We are committed to setting the highest industry standards for private security across the nation.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Leadership & Core Team Section */}
       <section className="py-section" style={{ backgroundColor: 'var(--color-bg-secondary)', borderTop: '1px solid var(--color-border)' }}>

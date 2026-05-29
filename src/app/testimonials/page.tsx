@@ -50,7 +50,7 @@ export default function TestimonialsPage() {
       <PageHero 
         title="Trusted by Leaders"
         description="Don't just take our word for it. Read verified reviews and operational triumphs from operations directors and facility managers across India."
-        bgImage="/guard-corporate.png"
+        bgImage="/bannerresedential.jpeg"
         breadcrumbs={[ { label: 'Testimonials', href: '/testimonials' } ]}
       />
       

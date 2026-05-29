@@ -10,19 +10,19 @@ const slides = [
     id: 1,
     title: "Professional Corporate Security",
     subtitle: "Safeguarding your enterprise assets, personnel, and intellectual property with world-class protection services.",
-    image: "/guard-corporate.png",
+    image: "/home-sl1.jpeg",
   },
   {
     id: 2,
     title: "Industrial Complex Protection",
     subtitle: "Robust 24/7 monitoring and physical security deployments for manufacturing plants and critical infrastructure.",
-    image: "/guard-industrial.png",
+    image: "/home-sl2.jpeg",
   },
   {
     id: 3,
     title: "Residential Estate Safety",
     subtitle: "Discreet, highly-trained personnel ensuring absolute peace of mind for premium residential communities.",
-    image: "/guard-residential.png",
+    image: "/home-sl3.jpeg",
   }
 ];
 

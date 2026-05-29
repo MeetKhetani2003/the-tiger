@@ -90,7 +90,7 @@ const AboutSection = () => {
             <div className="about-img-mask">
               <motion.img 
                 style={{ y: imageY }}
-                src="/guard-group.png" 
+                src="/security-grpphoto.jpg" 
                 alt="Corporate Security Officers" 
                 className="about-img"
               />

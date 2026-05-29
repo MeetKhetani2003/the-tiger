@@ -11,7 +11,7 @@ export default function CareersPage() {
       <PageHero 
         title="Join Our Elite Team"
         description="We are always looking for disciplined, highly-trained professionals to join our ranks in physical security, operations, and facility management."
-        bgImage="/guard-corporate.png"
+        bgImage="/home-sl2.jpeg"
         breadcrumbs={[ { label: 'Careers', href: '/careers' } ]}
       />
       <div className="py-section" style={{ minHeight: '50vh', backgroundColor: 'var(--color-bg-primary)' }}>

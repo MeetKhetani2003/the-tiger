@@ -1,34 +1,34 @@
 import PageHero from '@/components/layout/PageHero';
 import ContactCTASection from '@/components/home/ContactCTASection';
-import { servicesData } from '@/data/servicesData';
+import { industriesData } from '@/data/industriesData';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export async function generateStaticParams() {
-  return servicesData.map((service) => ({
-    slug: service.slug,
+  return industriesData.map((industry) => ({
+    slug: industry.slug,
   }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const service = servicesData.find((s) => s.slug === slug);
-  if (!service) {
-    return { title: 'Service Not Found' };
+  const industry = industriesData.find((s) => s.slug === slug);
+  
+  if (!industry) {
+    return { title: 'Industry Not Found' };
   }
   
-  const title = `${service.title} | Top ${service.title} in India`;
-  const url = `https://maashivaservices.com/services/${service.slug}`;
+  const title = `Security for ${industry.title} | Top Security Agency in India`;
+  const url = `https://maashivaservices.com/industries/${industry.slug}`;
 
   return {
     title: title,
-    description: service.shortDescription,
+    description: industry.shortDescription,
     keywords: [
-      service.title, 
-      `Best ${service.title} in India`, 
-      `${service.title} agency`, 
-      `Professional ${service.title}`, 
-      `Hire ${service.title}`,
+      `${industry.title} security`, 
+      `Security guards for ${industry.title}`, 
+      `Best security agency for ${industry.title}`, 
+      `Professional protection for ${industry.title}`, 
       "Maa Shiva Services"
     ],
     alternates: {
@@ -36,14 +36,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     openGraph: {
       title,
-      description: service.shortDescription,
+      description: industry.shortDescription,
       url,
       images: [
         {
-          url: `https://maashivaservices.com${service.image}`,
+          url: `https://maashivaservices.com${industry.image}`,
           width: 1200,
           height: 630,
-          alt: service.title,
+          alt: industry.title,
         }
       ],
       type: "website",
@@ -51,33 +51,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function IndustryDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const service = servicesData.find((s) => s.slug === slug);
+  const industry = industriesData.find((s) => s.slug === slug);
 
-  if (!service) {
+  if (!industry) {
     notFound();
   }
 
   const heroBanners: Record<string, string> = {
-    'corporate-security': '/home-sl1.jpeg',
-    'industrial-security': '/bannerindustrial.jpeg',
+    'corporate-offices': '/home-sl1.jpeg',
     'residential-security': '/bannerresedential.jpeg',
-    'event-security': '/home-sl3.jpeg',
-    'commando-security-services': '/home-sl2.jpeg',
-    'security-guard-services': '/home-sl1.jpeg',
+    'industrial-security': '/bannerindustrial.jpeg',
+    'healthcare-security': '/home-sl3.jpeg',
+    'institutional-security': '/home-sl2.jpeg',
   };
-  const heroBg = heroBanners[service.slug] || '/home-sl1.jpeg';
+  const heroBg = heroBanners[industry.slug] || '/home-sl1.jpeg';
 
   return (
     <>
       <PageHero 
-        title={service.title}
-        description={service.shortDescription}
+        title={`${industry.title} Security`}
+        description={industry.shortDescription}
         bgImage={heroBg}
         breadcrumbs={[
-          { label: 'Services', href: '/services' },
-          { label: service.title, href: `/services/${service.slug}` }
+          { label: 'Industries', href: '/industries' },
+          { label: industry.title, href: `/industries/${industry.slug}` }
         ]}
       />
       
@@ -88,19 +87,19 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
                 <ShieldCheck size={40} color="var(--color-primary-blue)" />
-                <h2 className="section-heading" style={{ margin: 0 }}>Service <span className="text-primary">Overview</span></h2>
+                <h2 className="section-heading" style={{ margin: 0 }}>Sector <span className="text-primary">Overview</span></h2>
               </div>
               
               <p className="text-lg" style={{ lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '40px' }}>
-                {service.fullDescription}
+                {industry.fullDescription}
               </p>
 
               <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '24px' }}>
-                Key Operational Features
+                Key Operational Protocols
               </h3>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {service.features.map((feature, idx) => (
+                {industry.features.map((feature, idx) => (
                   <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '16px', backgroundColor: 'var(--color-cards)', border: '1px solid var(--color-border)', borderRadius: '8px' }}>
                     <CheckCircle2 size={24} color="#10B981" />
                     <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-text)' }}>{feature}</span>
@@ -112,12 +111,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             {/* Sidebar */}
             <div style={{ position: 'sticky', top: '120px', height: 'fit-content' }}>
               <div style={{ backgroundColor: 'var(--color-bg-secondary)', padding: '32px', borderRadius: '8px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)' }}>
-                <h4 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', marginBottom: '16px', color: 'var(--color-text)' }}>Quick Inquiry</h4>
+                <h4 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', marginBottom: '16px', color: 'var(--color-text)' }}>Secure Your {industry.title}</h4>
                 <p style={{ color: 'var(--color-text-muted)', marginBottom: '24px', fontSize: '0.95rem' }}>
-                  Need {service.title.toLowerCase()}? Contact our command center for an immediate response.
+                  Require specialized security for your sector? Contact our command center for an immediate site assessment.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <a href="/contact" className="btn btn-primary" style={{ textAlign: 'center', width: '100%' }}>Request Quote</a>
+                  <a href="/contact" className="btn btn-primary" style={{ textAlign: 'center', width: '100%' }}>Request Assessment</a>
                   <a href="tel:+919415610453" className="btn btn-outline" style={{ textAlign: 'center', width: '100%' }}>Call +91 94156 10453</a>
                 </div>
               </div>
@@ -134,7 +133,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "serviceType": service.title,
+            "serviceType": `${industry.title} Security Services`,
             "provider": {
               "@type": "LocalBusiness",
               "name": "Maa Shiva Services Pvt. Ltd.",
@@ -144,13 +143,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               "@type": "Country",
               "name": "India"
             },
-            "description": service.fullDescription,
-            "offers": {
-              "@type": "Offer",
-              "availability": "https://schema.org/InStock"
-            },
-            "name": service.title,
-            "image": `https://maashivaservices.com${service.image}`
+            "description": industry.fullDescription,
+            "name": `Security Services for ${industry.title}`,
+            "image": `https://maashivaservices.com${industry.image}`
           })
         }}
       />

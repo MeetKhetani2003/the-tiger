@@ -50,7 +50,7 @@ export default function ProcessPage() {
       <PageHero 
         title="Our Methodology"
         description="A rigorous, strategic six-step approach from initial risk approach to active command center monitoring."
-        bgImage="/guard-corporate.png"
+        bgImage="/bannerindustrial.jpeg"
         breadcrumbs={[ { label: 'Process', href: '/process' } ]}
       />
       

@@ -6,11 +6,11 @@ import { ArrowUpRight } from 'lucide-react';
 import './IndustriesSection.css';
 
 const industries = [
-  { id: 'corp', name: 'Corporate Offices', desc: 'Secure entry protocols and floor monitoring.', img: '/guard-corporate.png' },
-  { id: 'res', name: 'Residential', desc: '24/7 gate security and perimeter patrols.', img: '/guard-residential.png' },
-  { id: 'ind', name: 'Industrial', desc: 'Loss prevention and heavy machinery oversight.', img: '/guard-industrial.png' },
-  { id: 'hosp', name: 'Healthcare', desc: 'Patient privacy and emergency room crowd control.', img: '/guard-vip.png' },
-  { id: 'edu', name: 'Institutions', desc: 'Campus safety and visitor management systems.', img: '/guard-group.png' },
+  { id: 'corp', name: 'Corporate Offices', desc: 'Secure entry protocols and floor monitoring.', img: '/corporate-sec.jpeg', slug: 'corporate-offices' },
+  { id: 'res', name: 'Residential', desc: '24/7 gate security and perimeter patrols.', img: '/residentialsec.jpeg', slug: 'residential-security' },
+  { id: 'ind', name: 'Industrial', desc: 'Loss prevention and heavy machinery oversight.', img: '/industrial-sec.jpeg', slug: 'industrial-security' },
+  { id: 'hosp', name: 'Healthcare', desc: 'Patient privacy and emergency room crowd control.', img: '/vip-sec.jpeg', slug: 'healthcare-security' },
+  { id: 'edu', name: 'Institutions', desc: 'Campus safety and visitor management systems.', img: '/facility-sec.jpeg', slug: 'institutional-security' },
 ];
 
 const IndustriesSection = () => {
@@ -63,7 +63,7 @@ const IndustriesSection = () => {
                 
                 <div className="accordion-details">
                   <p className="accordion-desc">{ind.desc}</p>
-                  <a href="/industries" className="accordion-link">
+                  <a href={`/industries/${ind.slug}`} className="accordion-link">
                     Explore <ArrowUpRight size={16} />
                   </a>
                 </div>
