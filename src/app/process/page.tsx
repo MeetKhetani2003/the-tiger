@@ -113,7 +113,7 @@ export default function ProcessPage() {
             <h2 className="section-heading" style={{ marginTop: '12px', marginBottom: '16px' }}>
               Our Security <span className="text-primary">Tech Stack</span>
             </h2>
-            <p className="text-lg mx-auto" style={{ maxWidth: '650px' }}>
+            <p className="text-lg" style={{ maxWidth: '650px', margin: '0 auto' }}>
               We merge military-grade human guarding with localized geofencing and centralized command tracking platforms.
             </p>
           </div>

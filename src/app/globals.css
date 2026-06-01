@@ -150,3 +150,10 @@ a {
 .pt-section { padding-top: var(--padding-section); }
 .pb-section { padding-bottom: var(--padding-section); }
 .py-section { padding-top: var(--padding-section); padding-bottom: var(--padding-section); }
+
+/* Location Link Hover Styles */
+.location-link:hover {
+  border-color: var(--color-primary-blue) !important;
+  color: var(--color-primary-blue) !important;
+  transform: translateY(-2px) !important;
+}

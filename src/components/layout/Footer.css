@@ -149,3 +149,8 @@
     justify-content: center;
   }
 }
+
+.city-link:hover {
+  color: var(--color-primary-blue) !important;
+  text-decoration: underline;
+}

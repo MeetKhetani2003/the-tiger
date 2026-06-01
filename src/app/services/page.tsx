@@ -70,10 +70,10 @@ export default function ServicesPage() {
               Comprehensive <span className="text-primary">Security Guard Services</span>
             </h2>
             <p className="text-lg" style={{ color: 'var(--color-text-muted)', marginBottom: '24px', lineHeight: '1.8' }}>
-              As one of the <strong>best security companies in India</strong>, we offer a diverse portfolio of protection solutions. Our core offerings include professional <strong>Security Guard Services</strong> for residential and commercial properties, highly trained <strong>Bouncer Security Services</strong> for events and VIPs, and elite <strong>Commando Security Services</strong> for high-risk environments.
+              As one of the <strong>best security companies in India</strong>, we offer a diverse portfolio of 15 specialized types of security guards to meet your exact needs. From highly visible <strong>Armed Security Guards</strong> to discreet <strong>Executive Protection</strong>, we ensure you have the right personnel for your specific environment, risk level, and operational goals.
             </p>
             <p className="text-lg" style={{ color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
-              Beyond physical guarding, our comprehensive <strong>Facility Management Services</strong> ensure your premises operate smoothly and securely 24/7. Whether you require armed security guards, corporate office security, or industrial plant protection, our tailored services are designed to mitigate all operational risks.
+              Our comprehensive offerings cover everything from <strong>Corporate and Residential Security</strong> to complex <strong>Industrial and Event Security</strong>. Whether you require mobile patrols, specialized hospital guards, or elite commando units, our tailored services are designed to mitigate all operational risks.
             </p>
           </div>
         </div>

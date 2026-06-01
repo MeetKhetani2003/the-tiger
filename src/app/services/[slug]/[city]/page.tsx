@@ -1,34 +1,48 @@
 import PageHero from '@/components/layout/PageHero';
 import ContactCTASection from '@/components/home/ContactCTASection';
 import { servicesData } from '@/data/servicesData';
+import { upCities } from '@/data/citiesData';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, CheckCircle2, MapPin } from 'lucide-react';
 
 export async function generateStaticParams() {
-  return servicesData.map((service) => ({
-    slug: service.slug,
-  }));
+  const params: { slug: string; city: string }[] = [];
+  
+  for (const service of servicesData) {
+    for (const city of upCities) {
+      params.push({
+        slug: service.slug,
+        city: city.slug,
+      });
+    }
+  }
+  
+  return params;
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string; city: string }> }) {
+  const { slug, city: citySlug } = await params;
+  
   const service = servicesData.find((s) => s.slug === slug);
-  if (!service) {
+  const city = upCities.find((c) => c.slug === citySlug);
+  
+  if (!service || !city) {
     return { title: 'Service Not Found' };
   }
   
-  const title = `${service.title} | Top ${service.title} in India`;
-  const url = `https://maashivaservices.com/services/${service.slug}`;
+  const title = `${service.title} in ${city.name} | Top Security Agency`;
+  const description = `Looking for professional ${service.title.toLowerCase()} in ${city.name}, Uttar Pradesh? Maa Shiva Services provides elite protection and facility management tailored to ${city.name}.`;
+  const url = `https://maashivaservices.com/services/${service.slug}/${city.slug}`;
 
   return {
     title: title,
-    description: service.shortDescription,
+    description: description,
     keywords: [
-      service.title, 
-      `Best ${service.title} in India`, 
-      `${service.title} agency`, 
-      `Professional ${service.title}`, 
-      `Hire ${service.title}`,
+      `${service.title} in ${city.name}`, 
+      `Best ${service.title} in ${city.name}`, 
+      `${service.title} agency ${city.name}`, 
+      `Security services in ${city.name} UP`, 
+      `Hire ${service.title} ${city.name}`,
       "Maa Shiva Services"
     ],
     alternates: {
@@ -36,14 +50,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     openGraph: {
       title,
-      description: service.shortDescription,
+      description,
       url,
       images: [
         {
           url: `https://maashivaservices.com${service.image}`,
           width: 1200,
           height: 630,
-          alt: service.title,
+          alt: `${service.title} in ${city.name}`,
         }
       ],
       type: "website",
@@ -51,13 +65,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function CityServiceDetailPage({ params }: { params: Promise<{ slug: string; city: string }> }) {
+  const { slug, city: citySlug } = await params;
+  
   const service = servicesData.find((s) => s.slug === slug);
+  const city = upCities.find((c) => c.slug === citySlug);
 
-  if (!service) {
+  if (!service || !city) {
     notFound();
   }
+  
+  const description = `Looking for professional ${service.title.toLowerCase()} in ${city.name}, Uttar Pradesh? Maa Shiva Services provides elite protection and facility management tailored to ${city.name}.`;
 
   const heroBanners: Record<string, string> = {
     'corporate-security': '/home-sl1.jpeg',
@@ -72,12 +90,13 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   return (
     <>
       <PageHero 
-        title={service.title}
-        description={service.shortDescription}
+        title={`${service.title} in ${city.name}`}
+        description={`Providing uncompromising ${service.title.toLowerCase()} tailored specifically for businesses, events, and residences in ${city.name}, Uttar Pradesh.`}
         bgImage={heroBg}
         breadcrumbs={[
           { label: 'Services', href: '/services' },
-          { label: service.title, href: `/services/${service.slug}` }
+          { label: service.title, href: `/services/${service.slug}` },
+          { label: city.name, href: `/services/${service.slug}/${city.slug}` }
         ]}
       />
       
@@ -88,12 +107,22 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
                 <ShieldCheck size={40} color="var(--color-primary-blue)" />
-                <h2 className="section-heading" style={{ margin: 0 }}>Service <span className="text-primary">Overview</span></h2>
+                <h2 className="section-heading" style={{ margin: 0 }}>Service <span className="text-primary">Overview for {city.name}</span></h2>
               </div>
               
               <p className="text-lg" style={{ lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '40px', whiteSpace: 'pre-wrap' }}>
                 {service.fullDescription}
               </p>
+
+              <div style={{ padding: '24px', backgroundColor: 'rgba(59, 130, 246, 0.05)', border: '1px solid rgba(59, 130, 246, 0.2)', borderRadius: '8px', marginBottom: '40px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                  <MapPin color="var(--color-primary-blue)" />
+                  <h3 style={{ fontSize: '1.25rem', margin: 0, color: 'var(--color-text)' }}>Local Expertise in {city.name}</h3>
+                </div>
+                <p style={{ color: 'var(--color-text-muted)', margin: 0, lineHeight: '1.6' }}>
+                  Our team has extensive operational experience throughout {city.name} and the broader Uttar Pradesh region. We understand the local security landscape, enabling us to provide uniquely adapted {service.title.toLowerCase()} that meet the highest standards of safety and compliance.
+                </p>
+              </div>
 
               <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '24px' }}>
                 Key Operational Features
@@ -112,66 +141,16 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             {/* Sidebar */}
             <div style={{ position: 'sticky', top: '120px', height: 'fit-content' }}>
               <div style={{ backgroundColor: 'var(--color-bg-secondary)', padding: '32px', borderRadius: '8px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)' }}>
-                <h4 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', marginBottom: '16px', color: 'var(--color-text)' }}>Quick Inquiry</h4>
+                <h4 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', marginBottom: '16px', color: 'var(--color-text)' }}>Quick Inquiry for {city.name}</h4>
                 <p style={{ color: 'var(--color-text-muted)', marginBottom: '24px', fontSize: '0.95rem' }}>
-                  Need {service.title.toLowerCase()}? Contact our command center for an immediate response.
+                  Need {service.title.toLowerCase()} in {city.name}? Contact our command center for an immediate response and local deployment schedule.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <a href="/contact" className="btn btn-primary" style={{ textAlign: 'center', width: '100%' }}>Request Quote</a>
+                  <a href="/contact" className="btn btn-primary" style={{ textAlign: 'center', width: '100%' }}>Request Local Quote</a>
                   <a href="tel:+919415610453" className="btn btn-outline" style={{ textAlign: 'center', width: '100%' }}>Call +91 94156 10453</a>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-section bg-white" style={{ borderTop: '1px solid var(--color-border)' }}>
-        <div className="container">
-          <div className="text-center mb-element">
-            <h2 className="section-heading" style={{ fontSize: '2rem' }}>Locations We Serve in <span className="text-primary">Uttar Pradesh</span></h2>
-            <p className="text-lg mx-auto" style={{ maxWidth: '700px', color: 'var(--color-text-muted)' }}>
-              Looking for {service.title.toLowerCase()} in your city? We provide dedicated, localized security solutions across all major districts in UP.
-            </p>
-          </div>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
-            {[
-              { name: 'Lucknow', slug: 'lucknow' },
-              { name: 'Kanpur', slug: 'kanpur' },
-              { name: 'Agra', slug: 'agra' },
-              { name: 'Varanasi', slug: 'varanasi' },
-              { name: 'Prayagraj', slug: 'prayagraj' },
-              { name: 'Noida', slug: 'noida' },
-              { name: 'Ghaziabad', slug: 'ghaziabad' },
-              { name: 'Meerut', slug: 'meerut' },
-              { name: 'Bareilly', slug: 'bareilly' },
-              { name: 'Gorakhpur', slug: 'gorakhpur' },
-              { name: 'Faizabad', slug: 'faizabad' },
-              { name: 'Ayodhya', slug: 'ayodhya' },
-            ].map((city, idx) => (
-              <a 
-                key={idx} 
-                href={`/services/${service.slug}/${city.slug}`}
-                className="location-link"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '16px',
-                  backgroundColor: 'var(--color-bg-secondary)',
-                  border: '1px solid var(--color-border)',
-                  borderRadius: '8px',
-                  color: 'var(--color-text)',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <MapPin size={18} />
-                {city.name}
-              </a>
-            ))}
           </div>
         </div>
       </section>
@@ -185,22 +164,26 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             {
               "@context": "https://schema.org",
               "@type": "Service",
-              "serviceType": service.title,
+              "serviceType": `${service.title} in ${city.name}`,
               "provider": {
                 "@type": "LocalBusiness",
                 "name": "Maa Shiva Services Pvt. Ltd.",
                 "url": "https://maashivaservices.com"
               },
               "areaServed": {
-                "@type": "Country",
-                "name": "India"
+                "@type": "City",
+                "name": city.name,
+                "containedInPlace": {
+                  "@type": "State",
+                  "name": "Uttar Pradesh"
+                }
               },
-              "description": service.fullDescription,
+              "description": description,
               "offers": {
                 "@type": "Offer",
                 "availability": "https://schema.org/InStock"
               },
-              "name": service.title,
+              "name": `${service.title} in ${city.name}`,
               "image": `https://maashivaservices.com${service.image}`
             },
             {
@@ -224,6 +207,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   "position": 3,
                   "name": service.title,
                   "item": `https://maashivaservices.com/services/${service.slug}`
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": city.name,
+                  "item": `https://maashivaservices.com/services/${service.slug}/${city.slug}`
                 }
               ]
             }

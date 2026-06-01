@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { upCities } from '@/data/citiesData';
 import './Footer.css';
-
 const Footer = () => {
   return (
     <footer className="footer pt-section">
@@ -38,7 +38,6 @@ const Footer = () => {
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/industries">Industries We Serve</Link></li>
               <li><Link href="/process">Our Process</Link></li>
-              <li><Link href="/careers">Careers</Link></li>
               <li><Link href="/gallery">Gallery</Link></li>
               <li><Link href="/testimonials">Testimonials</Link></li>
               <li><Link href="/contact">Contact Us</Link></li>
@@ -64,8 +63,30 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        <div className="footer-cities mt-element" style={{ paddingTop: '32px', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
+          <h4 style={{ color: 'rgba(255, 255, 255, 0.4)', fontSize: '0.85rem', marginBottom: '12px', fontFamily: 'var(--font-heading)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            Primary Service Areas
+          </h4>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
+            {upCities.map((city, idx) => (
+              <span key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Link 
+                  href={`/services/security-guard-services/${city.slug}`}
+                  style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', transition: 'color 0.3s ease' }}
+                  className="city-link"
+                >
+                  {city.name}
+                </Link>
+                {idx < upCities.length - 1 && (
+                  <span style={{ color: 'rgba(255, 255, 255, 0.2)', fontSize: '0.8rem' }}>•</span>
+                )}
+              </span>
+            ))}
+          </div>
+        </div>
         
-        <div className="footer-bottom">
+        <div className="footer-bottom mt-element">
           <p>&copy; {new Date().getFullYear()} Maa Shiva Services Pvt. Ltd. All rights reserved.</p>
           <div className="footer-legal">
             <Link href="/privacy-policy">Privacy Policy</Link>

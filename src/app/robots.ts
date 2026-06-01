@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://mahashivasecurity.com/sitemap.xml',
+    sitemap: 'https://maashivaservices.com/sitemap.xml',
   }
 }

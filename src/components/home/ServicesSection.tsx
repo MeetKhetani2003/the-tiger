@@ -49,7 +49,7 @@ const ServicesSection = () => {
               </div>
               <div className="service-content">
                 <h3 className="service-title">{service.title}</h3>
-                <p className="service-desc">{service.shortDescription}</p>
+                <p className="service-desc" style={{ whiteSpace: 'pre-wrap' }}>{service.fullDescription}</p>
                 <Link href={`/services/${service.slug}`} className="service-link">
                   <span>Learn more</span>
                   <ArrowRight size={16} />

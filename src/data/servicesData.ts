@@ -10,179 +10,213 @@ export interface ServiceType {
 
 export const servicesData: ServiceType[] = [
   {
-    id: 'corp',
-    slug: 'corporate-security',
-    title: "Corporate Security",
-    shortDescription: "Comprehensive security solutions for corporate offices, IT parks, and business centers.",
-    fullDescription: "Our corporate security services provide a secure environment for your employees, clients, and assets. We deploy highly trained personnel who understand the nuances of a corporate environment, ensuring safety without compromising on professionalism and courtesy.",
-    image: "/corporate-sec.jpeg",
-    features: [
-      "Access Control Management",
-      "Visitor Management Systems",
-      "Lobby and Reception Security",
-      "Emergency Evacuation Planning",
-      "After-hours Patrols",
-      "CCTV Monitoring"
-    ]
-  },
-  {
-    id: 'ind',
-    slug: 'industrial-security',
-    title: "Industrial Security",
-    shortDescription: "Robust protection for manufacturing plants, warehouses, and industrial facilities.",
-    fullDescription: "Industrial facilities face unique security challenges including theft, sabotage, and safety compliance issues. Our industrial security teams are specially trained in loss prevention, hazard identification, and strict access control for large-scale operations.",
-    image: "/industrial-sec.jpeg",
-    features: [
-      "Perimeter Security Patrols",
-      "Material Gate Passes & Vehicle Checking",
-      "Loss Prevention Strategies",
-      "Fire Safety & First Aid Trained Officers",
-      "Weighbridge Monitoring",
-      "Union & Strike Management"
-    ]
-  },
-  {
-    id: 'res',
-    slug: 'residential-security',
-    title: "Residential Security",
-    shortDescription: "Ensuring the safety of gated communities and premium residential complexes.",
-    fullDescription: "We provide peace of mind to residents through vigilant, polite, and responsive security personnel. Our teams manage high-traffic entry points, enforce community rules, and provide rapid response to residential emergencies.",
-    image: "/residentialsec.jpeg",
-    features: [
-      "24/7 Gate Management",
-      "Vendor and Domestic Staff Verification",
-      "Night Patrols",
-      "CCTV Surveillance",
-      "Emergency Response",
-      "Traffic & Parking Management"
-    ]
-  },
-  {
-    id: 'event',
-    slug: 'event-security',
-    title: "Event Security",
-    shortDescription: "Specialized crowd control and executive protection for corporate events.",
-    fullDescription: "From AGMs to large-scale exhibitions, our event security teams ensure your gathering proceeds smoothly. We specialize in crowd management, VIP protection, and rapid incident resolution to maintain order without disrupting the event experience.",
-    image: "/event-sec.jpeg",
-    features: [
-      "Crowd Control & Management",
-      "Baggage Screening",
-      "VIP & Executive Protection",
-      "Emergency Evacuation Coordination",
-      "Traffic & Parking Logistics",
-      "Access Credentialing"
-    ]
-  },
-  {
-    id: 'vip',
-    slug: 'vip-protection',
-    title: "VIP Protection",
-    shortDescription: "Discreet close protection services for executives and high-net-worth individuals.",
-    fullDescription: "Our Close Protection Officers (CPOs) are highly trained professionals, many with military or elite law enforcement backgrounds. They provide discreet but absolute security for corporate leaders, celebrities, and their families.",
-    image: "/vip-sec.jpeg",
-    features: [
-      "Close Protection Officers (Armed/Unarmed)",
-      "Secure Transportation",
-      "Route Reconnaissance",
-      "Risk & Threat Assessments",
-      "Travel Security Planning",
-      "Residential Security Details"
-    ]
-  },
-  {
-    id: 'fm',
-    slug: 'facility-management',
-    title: "Facility Management",
-    shortDescription: "Integrated facility management services including housekeeping and maintenance.",
-    fullDescription: "Beyond physical security, we offer comprehensive facility management to ensure your premises are clean, maintained, and operating efficiently. A well-managed facility is inherently a safer facility.",
-    image: "/facility-sec.jpeg",
-    features: [
-      "Professional Housekeeping",
-      "Electro-Mechanical Maintenance",
-      "Pantry Operations",
-      "Pest Control",
-      "Facade Cleaning",
-      "Waste Management"
-    ]
-  },
-  {
     id: 'armed',
-    slug: 'armed-security-services',
-    title: "Armed Security Services",
-    shortDescription: "Highly trained armed security personnel for high-risk environments and critical asset protection.",
-    fullDescription: "Our armed security services offer a robust line of defense for situations requiring elevated security measures. We provide rigorously trained and licensed armed guards capable of protecting financial institutions, cash transit operations, high-profile individuals, and sensitive locations. Each guard undergoes continuous firearms training and conflict resolution protocols to ensure absolute safety.",
+    slug: 'armed-security-guards',
+    title: "Armed Security Guards",
+    shortDescription: "Armed security guards are employed where higher levels of protection are necessary. These guards are trained to carry firearms and use them only in extreme situations.",
+    fullDescription: "Armed security guards are employed where higher levels of protection are necessary. These guards are trained to carry firearms and use them only in extreme situations. Their presence alone acts as a strong deterrent for potential criminals.\n\nWhile they are often deployed in high-risk areas such as banks, governmental buildings, and large-scale events, armed security guards are also suitable for businesses that handle valuable goods. They must possess a specific set of certifications and skills to handle dangerous situations professionally.",
     image: "/sec6.jpeg",
     features: [
       "Licensed & Trained Armed Guards",
       "Cash-in-Transit Protection",
       "High-Value Asset Security",
-      "Deterrence of Severe Threats",
-      "Quick Emergency Response",
-      "Strict Firearm Protocols"
+      "Deterrence of Severe Threats"
     ]
   },
   {
-    id: 'commando',
-    slug: 'commando-security-services',
-    title: "Commando Security Services",
-    shortDescription: "Elite security commando units for specialized operations and maximum protection.",
-    fullDescription: "For unparalleled security needs, our Commando Security Services deploy elite personnel with advanced tactical training. Often recruited from ex-military or specialized law enforcement backgrounds, these commandos are equipped to handle extreme threats, secure high-risk zones, and provide an imposing physical presence that deters any potential security breaches.",
-    image: "/commando-sec.jpeg",
-    features: [
-      "Ex-Military & Special Forces Personnel",
-      "Advanced Tactical Training",
-      "Crisis & Hostage Management",
-      "Anti-Terrorism Protocols",
-      "Maximum Physical Deterrence",
-      "Rapid Deployment & Strike Capabilities"
-    ]
-  },
-  {
-    id: 'bouncer',
-    slug: 'bouncer-security-services',
-    title: "Bouncer Security Services",
-    shortDescription: "Professional bouncers for crowd control, nightlife security, and event safety.",
-    fullDescription: "Our Bouncer Security Services ensure the safety and orderliness of your venues, events, and nightlife establishments. Our bouncers are physically imposing yet professionally trained in de-escalation techniques. They manage entry points, verify identification, handle disruptive individuals peacefully, and maintain a secure environment for all patrons.",
-    image: "/bouncer-sec.jpeg",
-    features: [
-      "Strict Access Control & ID Verification",
-      "Crowd Dynamics & Flow Management",
-      "Conflict De-escalation",
-      "Physical Intervention (When Necessary)",
-      "VVIP Area Protection",
-      "Event & Nightlife Security"
-    ]
-  },
-  {
-    id: 'security-services',
-    slug: 'security-services',
-    title: "Security Services",
-    shortDescription: "Comprehensive, tailored security solutions for various industries and private needs.",
-    fullDescription: "Our holistic Security Services encompass a wide range of protective measures designed to safeguard your people, property, and assets. From risk assessment to the implementation of integrated security systems, we provide end-to-end solutions tailored to your specific vulnerabilities, ensuring a safe and secure environment across all operational fronts.",
-    image: "/security-sec.jpeg",
-    features: [
-      "Comprehensive Risk Assessments",
-      "Integrated Security Planning",
-      "Manned Guarding",
-      "Technology & Surveillance Integration",
-      "Security Audits & Consulting",
-      "24/7 Security Command Center"
-    ]
-  },
-  {
-    id: 'security-guard',
-    slug: 'security-guard-services',
-    title: "Security Guard Services",
-    shortDescription: "Professional and vigilant security guards for everyday protection and peace of mind.",
-    fullDescription: "Our foundational Security Guard Services provide reliable, alert, and courteous personnel to maintain safety in everyday environments. Whether for retail spaces, corporate offices, or residential buildings, our guards act as the first line of defense, monitoring premises, reporting irregularities, and assisting visitors while upholding the highest standards of professionalism.",
+    id: 'unarmed',
+    slug: 'unarmed-security-guards',
+    title: "Unarmed Security Guards",
+    shortDescription: "Unarmed security guards provide surveillance, monitor access, and see through general safety without carrying weapons.",
+    fullDescription: "Unarmed security guards are the most common type of security personnel. They provide surveillance, monitor access, and see through general safety without carrying weapons. These guards are often seen in malls, corporate offices, and residential complexes.\n\nAlthough they do not carry firearms, unarmed security guards are trained in conflict de-escalation and basic first aid. They are ideal for businesses and properties that do not face imminent security threats but require a visible security presence.",
     image: "/sec-guard.jpeg",
     features: [
       "Uniformed Security Personnel",
       "Patrolling & Premise Monitoring",
-      "Incident Reporting & Logging",
-      "Visitor Assistance & Direction",
-      "Theft & Vandalism Deterrence",
-      "Basic First Aid & Fire Safety"
+      "Visitor Assistance",
+      "Theft & Vandalism Deterrence"
+    ]
+  },
+  {
+    id: 'mobile',
+    slug: 'mobile-patrol-security-guards',
+    title: "Mobile Patrol Security Guards",
+    shortDescription: "Mobile patrol guards move between locations to provide a broad range of surveillance over larger areas.",
+    fullDescription: "Mobile patrol guards move between locations to provide a broad range of surveillance over larger areas. They may work in a vehicle or on foot, patrolling multiple properties or sectors within a community.\n\nThis type of security guard is ideal for warehouses, parking lots, or neighborhoods. The flexibility of mobile patrols allows them to respond to emergencies more quickly than a stationary guard, making them a great fit for properties that need regular, unpredictable oversight.",
+    image: "/guard-patrol.png",
+    features: [
+      "Rapid Response Times",
+      "Expansive Area Coverage",
+      "Random & Scheduled Patrols",
+      "GPS Tracking & Reporting"
+    ]
+  },
+  {
+    id: 'res',
+    slug: 'residential-security-guards',
+    title: "Residential Security Guards",
+    shortDescription: "Residential security guards focus on protecting homes, gated communities, and residential complexes.",
+    fullDescription: "Residential security guards focus on protecting homes, gated communities, and residential complexes. They maintain secure perimeters, monitor visitors, and manage access control for residents.\n\nThis type of guard helps communities or apartment complexes where peace of mind and safety are top priorities. They typically patrol the premises, seeing to it that only authorized individuals are allowed entry.",
+    image: "/generated/residential_guard.png",
+    features: [
+      "24/7 Gate Management",
+      "Vendor Verification",
+      "Night Patrols",
+      "Emergency Response"
+    ]
+  },
+  {
+    id: 'corp',
+    slug: 'corporate-security-guards',
+    title: "Corporate Security Guards",
+    shortDescription: "Corporate security guards specialize in safeguarding office buildings, corporate events, and sensitive business areas.",
+    fullDescription: "Corporate security guards specialize in safeguarding office buildings, corporate events, and sensitive business areas. They often monitor surveillance systems, restrict access to certain areas, and make sure that employees and visitors are safe.\n\nThese guards are particularly useful in industries where sensitive information or valuable equipment needs protection. A corporate guard’s role includes managing day-to-day security measures, which can help maintain a professional environment.",
+    image: "/generated/corporate_guard.png",
+    features: [
+      "Access Control Management",
+      "Visitor Management Systems",
+      "Lobby Security",
+      "CCTV Monitoring"
+    ]
+  },
+  {
+    id: 'event',
+    slug: 'event-security-guards',
+    title: "Event Security Guards",
+    shortDescription: "Event security guards are best needed for concerts, festivals, sports events, and other large gatherings.",
+    fullDescription: "Event security guards are best needed for concerts, festivals, sports events, and other large gatherings. Their responsibilities include managing crowds, preventing theft, and watching over the safety of all attendees.\n\nEvent security guards undergo specific training in crowd control and emergency response. They see to it that events run smoothly, handling any disturbances or incidents that may arise.",
+    image: "/generated/event_guard.png",
+    features: [
+      "Crowd Control & Management",
+      "Baggage Screening",
+      "Traffic Logistics",
+      "Access Credentialing"
+    ]
+  },
+  {
+    id: 'retail',
+    slug: 'retail-security-guards',
+    title: "Retail Security Guards",
+    shortDescription: "Retail security guards protect stores, malls, and shopping centers from theft and other forms of crime.",
+    fullDescription: "Retail security guards protect stores, malls, and shopping centers from theft and other forms of crime. They are skilled in spotting suspicious behavior and preventing shoplifting, which helps reduce losses for retail businesses.\n\nThese guards can be stationed at entrances or roam the store floor, providing a visible deterrent to would-be thieves. Retail guards may also assist in customer service, helping to maintain order in busy retail environments.",
+    image: "/security-sec.jpeg",
+    features: [
+      "Loss Prevention Strategy",
+      "Shoplifting Deterrence",
+      "Store Patrols",
+      "Customer Assistance"
+    ]
+  },
+  {
+    id: 'gov',
+    slug: 'government-security-guards',
+    title: "Government Security Guards",
+    shortDescription: "Government security guards protect public buildings, government officials, and sensitive information.",
+    fullDescription: "Government security guards protect public buildings, government officials, and sensitive information. They are often deployed in federal buildings, embassies, and research facilities where the risk level is higher.\n\nThese guards undergo strict background checks and are trained to handle high-level security breaches. Their role includes safeguarding confidential data and the safety of government personnel.",
+    image: "/facility-sec.jpeg",
+    features: [
+      "Strict Regulatory Compliance",
+      "Infrastructure Protection",
+      "Access Control",
+      "Crisis Management"
+    ]
+  },
+  {
+    id: 'hospital',
+    slug: 'hospital-security-guards',
+    title: "Hospital Security Guards",
+    shortDescription: "Hospital security guards protect patients, staff, and visitors in healthcare facilities.",
+    fullDescription: "Hospital security guards protect patients, staff, and visitors in healthcare facilities. They monitor entrances, manage disturbances, and assist in emergencies to create a safe environment.\n\nGiven the sensitive nature of healthcare settings, hospital guards are trained in managing crises while maintaining a calm demeanor. Their presence is critical to prevent theft, manage aggressive behavior, and respond to emergencies.",
+    image: "/bouncer-sec.jpeg",
+    features: [
+      "Patient & Staff Safety",
+      "Conflict De-escalation",
+      "Asset Protection",
+      "Emergency Code Response"
+    ]
+  },
+  {
+    id: 'construction',
+    slug: 'construction-site-security-guards',
+    title: "Construction Site Security Guards",
+    shortDescription: "Construction site security guards prevent unauthorized access, vandalism, and theft at building sites.",
+    fullDescription: "Construction site security guards prevent unauthorized access, vandalism, and theft at building sites. Since these areas often contain valuable materials and equipment, a security presence helps protect against potential losses.\n\nThese guards often work at night or during off-hours when the site is most vulnerable. They may also manage access control for workers and visitors during the day, so that only authorized personnel enter the site.",
+    image: "/bannerindustrial.jpeg",
+    features: [
+      "Perimeter Security",
+      "Material Gate Passes",
+      "Night Watch",
+      "Hazard Reporting"
+    ]
+  },
+  {
+    id: 'vip',
+    slug: 'executive-protection-security-guards',
+    title: "Executive Protection Security Guards",
+    shortDescription: "Executive protection guards, also known as bodyguards, offer personal protection to high-profile individuals.",
+    fullDescription: "Executive protection guards, also known as bodyguards, offer personal protection to high-profile individuals such as celebrities, politicians, and corporate executives. These guards are highly trained in both physical defense and threat detection.\n\nTheir role goes beyond standard security, focusing on protecting their client from potential harm at all times. Executive protection guards often travel with their clients and assess risk factors to avoid dangerous situations.",
+    image: "/vip-sec.jpeg",
+    features: [
+      "Close Protection",
+      "Route Reconnaissance",
+      "Risk Assessments",
+      "Secure Transportation"
+    ]
+  },
+  {
+    id: 'fire',
+    slug: 'fire-watch-security-guards',
+    title: "Fire Watch Security Guards",
+    shortDescription: "Fire watch security guards are specialized personnel who monitor fire hazards in high-risk areas.",
+    fullDescription: "Fire watch security guards are specialized personnel who monitor fire hazards in high-risk areas. They patrol buildings and construction sites where fire risks are elevated, making sure that fire prevention measures are followed.\n\nThese guards are needed in places where fire suppression systems are down or during construction projects with high fire risk. They can quickly alert emergency services if a fire breaks out, preventing large-scale disasters.",
+    image: "/sec5.jpeg",
+    features: [
+      "Continuous Area Patrols",
+      "Hazard Identification",
+      "Evacuation Coordination",
+      "Fire Department Liaison"
+    ]
+  },
+  {
+    id: 'ind',
+    slug: 'industrial-security-guards',
+    title: "Industrial Security Guards",
+    shortDescription: "Industrial security guards protect factories, warehouses, and manufacturing facilities.",
+    fullDescription: "Industrial security guards protect factories, warehouses, and manufacturing facilities, where valuable equipment and materials are stored. Their duties often include monitoring access points, conducting regular patrols, and checking the safety of both employees and assets.\n\nThese guards are trained to respond to emergencies such as machinery malfunctions, chemical spills, or unauthorized access. Industrial settings often require guards with specialized knowledge of hazardous materials and safety protocols, making them an important part of the facility’s overall security strategy.",
+    image: "/industrial-sec.jpeg",
+    features: [
+      "Perimeter Patrols",
+      "Vehicle Checking",
+      "Safety Compliance",
+      "Weighbridge Monitoring"
+    ]
+  },
+  {
+    id: 'school',
+    slug: 'school-security-guards',
+    title: "School Security Guards",
+    shortDescription: "School security guards provide protection in educational environments, working for the safety of students and staff.",
+    fullDescription: "School security guards provide protection in educational environments, working for the safety of students, staff, and visitors. They monitor access to the premises, oversee security during events, and respond to any disturbances or emergencies.\n\nSchool security guards play a significant role in creating a safe learning environment, whether they are stationed at elementary schools or universities. Their responsibilities also include de-escalating conflicts, addressing bullying, and making sure the school follows safety protocols in emergencies like fire drills or lockdowns.",
+    image: "/sec8.jpeg",
+    features: [
+      "Campus Patrols",
+      "Visitor Screening",
+      "Lockdown Coordination",
+      "Student Safety"
+    ]
+  },
+  {
+    id: 'transport',
+    slug: 'transportation-security-guards',
+    title: "Transportation Security Guards",
+    shortDescription: "Transportation security guards are tasked with safeguarding airports, train stations, bus terminals, and other transportation hubs.",
+    fullDescription: "Transportation security guards are tasked with safeguarding airports, train stations, bus terminals, and other transportation hubs. They make sure that passengers, cargo, and vehicles are safe from theft, vandalism, or terrorist activities.\n\nThese guards are trained to detect suspicious behavior, manage crowds, and perform security screenings. Their presence helps with the smooth operation of transportation systems, providing both safety and efficiency in high-traffic areas.",
+    image: "/commando-sec.jpeg",
+    features: [
+      "Cargo Protection",
+      "Hub Surveillance",
+      "Supply Chain Security",
+      "Transit Escorts"
     ]
   }
 ];

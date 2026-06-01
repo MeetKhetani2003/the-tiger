@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Maa Shiva Services Pvt. Ltd. | Premium Enterprise & Security Guard Services in India",
   },
   description: "Providing world-class security personnel, bouncer services, commando security, surveillance support, and facility management for corporate, industrial, and residential sectors across India.",
-  keywords: ["Top Security Agency in India", "Best Security Guard Services in India", "Bouncer Services India", "Commando Security India", "Corporate Security Services", "Industrial Security Services", "Event Security Guards", "VIP Protection Services India", "Facility Management Services", "Professional Security Company", "Armed Security Guards India"],
+  keywords: ["Top Security Agency in India", "Best Security Guard Services in India", "Armed Security Guards India", "Unarmed Security Guards", "Mobile Patrol Security", "Residential Security Services", "Corporate Security Services", "Event Security Guards", "Retail Security Guards", "Government Security Guards", "Hospital Security Guards", "Construction Site Security Guards", "Executive Protection", "VIP Protection Services India", "Fire Watch Security Guards", "Industrial Security Services", "School Security Guards", "Transportation Security Guards", "Bouncer Services India", "Commando Security India", "Facility Management Services", "Professional Security Company"],
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -77,29 +77,23 @@ export default function RootLayout({
               },
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Security Services",
+                "name": "15 Types of Security Services",
                 "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Security Guard Services"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Bouncer Security Services"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Commando Security Services"
-                    }
-                  }
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Armed Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unarmed Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Patrol Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Event Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Retail Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Government Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hospital Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Construction Site Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Executive Protection Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fire Watch Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Industrial Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "School Security Guards" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Transportation Security Guards" } }
                 ]
               }
             }),
