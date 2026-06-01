@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, Play } from 'lucide-react';
 import './GalleryGrid.css';
 
-type GalleryItem = {
+export type GalleryItem = {
   id: string;
   type: 'photo' | 'video';
   src: string;
@@ -14,7 +14,7 @@ type GalleryItem = {
   videoId?: string;
 };
 
-const galleryMedia: GalleryItem[] = [
+export const galleryMedia: GalleryItem[] = [
   { id: 'v1', type: 'video', videoId: 'MfIIOt5s-UM', src: 'https://img.youtube.com/vi/MfIIOt5s-UM/hqdefault.jpg', alt: 'Security Operations Briefing', category: 'Operations' },
   { id: 'p1', type: 'photo', src: '/generated/corporate_guard.png', alt: 'Corporate Office Security', category: 'Corporate' },
   { id: 'p2', type: 'photo', src: '/generated/event_guard.png', alt: 'Large Scale Event Security', category: 'Event' },

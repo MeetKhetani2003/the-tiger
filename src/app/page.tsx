@@ -3,6 +3,7 @@ import HomeIntroSection from '@/components/home/HomeIntroSection';
 import ServicesSection from '@/components/home/ServicesSection';
 import SLASection from '@/components/home/SLASection';
 import FAQSection from '@/components/home/FAQSection';
+import GalleryCarouselSection from '@/components/home/GalleryCarouselSection';
 import ContactCTASection from '@/components/home/ContactCTASection';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <ServicesSection />
       <SLASection />
       <FAQSection />
+      <GalleryCarouselSection />
       <ContactCTASection />
     </>
   );

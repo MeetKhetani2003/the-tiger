@@ -1,0 +1,95 @@
+.gallery-carousel-section {
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 0;
+}
+
+/* Fading edges */
+.carousel-container::before,
+.carousel-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg-primary), transparent);
+}
+
+.carousel-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg-primary), transparent);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scrollMarquee 40s linear infinite;
+  padding-left: 24px;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  to {
+    transform: translateX(calc(-50% - 12px)); /* Move exactly half the track width */
+  }
+}
+
+.carousel-item {
+  width: 350px;
+  height: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: #1a1a24;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-item:hover {
+  transform: translateY(-8px);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-item:hover img {
+  transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 280px;
+    height: 200px;
+  }
+  .carousel-container::before,
+  .carousel-container::after {
+    width: 60px;
+  }
+}
