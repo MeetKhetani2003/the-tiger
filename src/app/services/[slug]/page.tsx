@@ -1,8 +1,10 @@
 import PageHero from '@/components/layout/PageHero';
 import ContactCTASection from '@/components/home/ContactCTASection';
 import { servicesData } from '@/data/servicesData';
+import { upCities } from '@/data/citiesData';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, CheckCircle2, MapPin } from 'lucide-react';
+import { generateServiceFAQs } from '@/utils/seoGenerator';
 
 export async function generateStaticParams() {
   return servicesData.map((service) => ({
@@ -17,17 +19,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: 'Service Not Found' };
   }
   
-  const title = `${service.title} | Top ${service.title} in India`;
+  const title = `Best ${service.title} Agency in UP & India | Maa Shiva Services`;
   const url = `https://maashivaservices.com/services/${service.slug}`;
 
   return {
     title: title,
-    description: service.shortDescription,
+    description: `Looking for top-tier ${service.title.toLowerCase()}? Maa Shiva Services offers highly trained personnel, comprehensive risk management, and reliable deployment. ${service.shortDescription}`,
     keywords: [
       service.title, 
       `Best ${service.title} in India`, 
-      `${service.title} agency`, 
-      `Professional ${service.title}`, 
+      `Best ${service.title} in Uttar Pradesh`,
+      `${service.title} agency near me`, 
+      `Professional ${service.title} company`, 
       `Hire ${service.title}`,
       "Maa Shiva Services"
     ],
@@ -36,8 +39,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     openGraph: {
       title,
-      description: service.shortDescription,
+      description: `Premium ${service.title.toLowerCase()} provided by Maa Shiva Services. We specialize in robust protection and trained personnel.`,
       url,
+      siteName: 'Maa Shiva Services',
       images: [
         {
           url: `https://maashivaservices.com${service.image}`,
@@ -48,6 +52,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       ],
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: `Premium ${service.title.toLowerCase()} provided by Maa Shiva Services. We specialize in robust protection and trained personnel.`,
+      images: [`https://maashivaservices.com${service.image}`],
+    }
   };
 }
 
@@ -68,6 +78,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     'security-guard-services': '/home-sl1.jpeg',
   };
   const heroBg = heroBanners[service.slug] || '/home-sl1.jpeg';
+  
+  const faqs = generateServiceFAQs(service.title);
 
   return (
     <>
@@ -88,22 +100,35 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
                 <ShieldCheck size={40} color="var(--color-primary-blue)" />
-                <h2 className="section-heading" style={{ margin: 0 }}>Service <span className="text-primary">Overview</span></h2>
+                <h2 className="section-heading" style={{ margin: 0 }}>Comprehensive <span className="text-primary">Overview</span></h2>
               </div>
               
-              <p className="text-lg" style={{ lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '40px', whiteSpace: 'pre-wrap' }}>
+              <div className="text-lg" style={{ lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '40px', whiteSpace: 'pre-wrap' }}>
                 {service.fullDescription}
-              </p>
+              </div>
 
-              <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '24px' }}>
+              <h3 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '24px' }}>
                 Key Operational Features
               </h3>
               
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
                 {service.features.map((feature, idx) => (
                   <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '16px', backgroundColor: 'var(--color-cards)', border: '1px solid var(--color-border)', borderRadius: '8px' }}>
                     <CheckCircle2 size={24} color="#10B981" />
                     <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-text)' }}>{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Service FAQs */}
+              <h3 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '24px' }}>
+                Frequently Asked Questions
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {faqs.map((faq, idx) => (
+                  <div key={idx} style={{ padding: '24px', backgroundColor: '#ffffff', borderRadius: '8px', border: '1px solid var(--color-border)' }}>
+                    <h4 style={{ margin: '0 0 12px 0', fontSize: '1.15rem', color: 'var(--color-text)' }}>{faq.question}</h4>
+                    <p style={{ margin: 0, color: 'var(--color-text-muted)', lineHeight: '1.6' }}>{faq.answer}</p>
                   </div>
                 ))}
               </div>
@@ -112,12 +137,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             {/* Sidebar */}
             <div style={{ position: 'sticky', top: '120px', height: 'fit-content' }}>
               <div style={{ backgroundColor: 'var(--color-bg-secondary)', padding: '32px', borderRadius: '8px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)' }}>
-                <h4 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', marginBottom: '16px', color: 'var(--color-text)' }}>Quick Inquiry</h4>
+                <h4 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', marginBottom: '16px', color: 'var(--color-text)' }}>Need a Quick Quote?</h4>
                 <p style={{ color: 'var(--color-text-muted)', marginBottom: '24px', fontSize: '0.95rem' }}>
-                  Need {service.title.toLowerCase()}? Contact our command center for an immediate response.
+                  Speak to our command center to discuss your specific requirements for {service.title.toLowerCase()}.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <a href="/contact" className="btn btn-primary" style={{ textAlign: 'center', width: '100%' }}>Request Quote</a>
+                  <a href="/contact" className="btn btn-primary" style={{ textAlign: 'center', width: '100%' }}>Request Assessment</a>
                   <a href="tel:+919415610453" className="btn btn-outline" style={{ textAlign: 'center', width: '100%' }}>Call +91 94156 10453</a>
                 </div>
               </div>
@@ -131,25 +156,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <div className="text-center mb-element">
             <h2 className="section-heading" style={{ fontSize: '2rem' }}>Locations We Serve in <span className="text-primary">Uttar Pradesh</span></h2>
             <p className="text-lg mx-auto" style={{ maxWidth: '700px', color: 'var(--color-text-muted)' }}>
-              Looking for {service.title.toLowerCase()} in your city? We provide dedicated, localized security solutions across all major districts in UP.
+              We provide dedicated, localized {service.title.toLowerCase()} across all major districts. Select your city to view localized security details.
             </p>
           </div>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
-            {[
-              { name: 'Lucknow', slug: 'lucknow' },
-              { name: 'Kanpur', slug: 'kanpur' },
-              { name: 'Agra', slug: 'agra' },
-              { name: 'Varanasi', slug: 'varanasi' },
-              { name: 'Prayagraj', slug: 'prayagraj' },
-              { name: 'Noida', slug: 'noida' },
-              { name: 'Ghaziabad', slug: 'ghaziabad' },
-              { name: 'Meerut', slug: 'meerut' },
-              { name: 'Bareilly', slug: 'bareilly' },
-              { name: 'Gorakhpur', slug: 'gorakhpur' },
-              { name: 'Faizabad', slug: 'faizabad' },
-              { name: 'Ayodhya', slug: 'ayodhya' },
-            ].map((city, idx) => (
+            {upCities.map((city, idx) => (
               <a 
                 key={idx} 
                 href={`/services/${service.slug}/${city.slug}`}
@@ -178,6 +190,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       <ContactCTASection />
 
+      {/* Structured Data for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -189,7 +202,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               "provider": {
                 "@type": "LocalBusiness",
                 "name": "Maa Shiva Services Pvt. Ltd.",
-                "url": "https://maashivaservices.com"
+                "url": "https://maashivaservices.com",
+                "telephone": "+919415610453"
               },
               "areaServed": {
                 "@type": "Country",
@@ -226,6 +240,18 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   "item": `https://maashivaservices.com/services/${service.slug}`
                 }
               ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": faqs.map(f => ({
+                "@type": "Question",
+                "name": f.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": f.answer
+                }
+              }))
             }
           ])
         }}

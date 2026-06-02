@@ -3,6 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import StickyCTA from "@/components/layout/StickyCTA";
 
 export const metadata: Metadata = {
   title: {
@@ -103,11 +104,12 @@ export default function RootLayout({
       <body>
         <SmoothScroll>
           <Navbar />
-          <main>
+          <main style={{ paddingBottom: '60px' }}>
             {children}
           </main>
           <Footer />
         </SmoothScroll>
+        <StickyCTA />
       </body>
     </html>
   );

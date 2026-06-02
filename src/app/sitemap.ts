@@ -2,42 +2,78 @@ import { MetadataRoute } from 'next';
 import { servicesData } from '@/data/servicesData';
 import { upCities } from '@/data/citiesData';
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://maashivaservices.com';
+const baseUrl = 'https://maashivaservices.com';
 
-  // 1. Core Static Pages
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: 'yearly', priority: 1.0 },
-    { url: `${baseUrl}/services`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/industries`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/process`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
-    { url: `${baseUrl}/gallery`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${baseUrl}/testimonials`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.9 },
+export async function generateSitemaps() {
+  return [
+    { id: 'core' },
+    { id: 'services' },
+    { id: 'cities' },
+    { id: 'blog' }
   ];
+}
 
-  // 2. Individual Service Pages
-  const servicePages: MetadataRoute.Sitemap = servicesData.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
-
-  // 3. Programmatic Local SEO Pages (Service x City)
-  const cityPages: MetadataRoute.Sitemap = [];
+export default async function sitemap({
+  id,
+}: {
+  id: string;
+}): Promise<MetadataRoute.Sitemap> {
   
-  servicesData.forEach((service) => {
-    upCities.forEach((city) => {
-      cityPages.push({
-        url: `${baseUrl}/services/${service.slug}/${city.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.7, // Slightly lower than main service pages to establish hierarchy
+  if (id === 'core') {
+    return [
+      { url: baseUrl, lastModified: new Date(), changeFrequency: 'yearly', priority: 1.0 },
+      { url: `${baseUrl}/services`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+      { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+      { url: `${baseUrl}/industries`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+      { url: `${baseUrl}/process`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
+      { url: `${baseUrl}/gallery`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+      { url: `${baseUrl}/testimonials`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+      { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.9 },
+    ];
+  }
+
+  if (id === 'services') {
+    return servicesData.map((service) => ({
+      url: `${baseUrl}/services/${service.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }));
+  }
+
+  if (id === 'cities') {
+    const cityPages: MetadataRoute.Sitemap = [];
+    servicesData.forEach((service) => {
+      upCities.forEach((city) => {
+        cityPages.push({
+          url: `${baseUrl}/services/${service.slug}/${city.slug}`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.7,
+        });
       });
     });
-  });
+    return cityPages;
+  }
 
-  return [...staticPages, ...servicePages, ...cityPages];
+  if (id === 'blog') {
+    const { blogPosts } = await import('@/data/blogData');
+    const blogIndex = {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    };
+    
+    const posts = blogPosts.map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
+    
+    return [blogIndex, ...posts];
+  }
+
+  return [];
 }

@@ -197,7 +197,7 @@ export const servicesData: ServiceType[] = [
     title: "School Security Guards",
     shortDescription: "School security guards provide protection in educational environments, working for the safety of students and staff.",
     fullDescription: "School security guards provide protection in educational environments, working for the safety of students, staff, and visitors. They monitor access to the premises, oversee security during events, and respond to any disturbances or emergencies.\n\nSchool security guards play a significant role in creating a safe learning environment, whether they are stationed at elementary schools or universities. Their responsibilities also include de-escalating conflicts, addressing bullying, and making sure the school follows safety protocols in emergencies like fire drills or lockdowns.",
-    image: "/sec8.jpeg",
+    image: "/by client/school-security.jpeg",
     features: [
       "Campus Patrols",
       "Visitor Screening",
@@ -217,6 +217,62 @@ export const servicesData: ServiceType[] = [
       "Hub Surveillance",
       "Supply Chain Security",
       "Transit Escorts"
+    ]
+  },
+  {
+    id: 'bouncer',
+    slug: 'bouncer-security-services',
+    title: "Bouncer Security Service",
+    shortDescription: "Professional bouncer security services for events, clubs, and personal protection.",
+    fullDescription: "Our bouncer security services provide strong, authoritative personnel trained to maintain order at high-profile events, clubs, and private gatherings. They ensure the safety of guests, manage access control, and swiftly handle any disruptive behavior to keep the environment secure and enjoyable.",
+    image: "/by client/bouncer-security.jpeg",
+    features: [
+      "Access Control",
+      "Crowd Management",
+      "Conflict Resolution",
+      "VIP Protection"
+    ]
+  },
+  {
+    id: 'female-bouncer',
+    slug: 'female-bouncer-security',
+    title: "Female Bouncer Security Service",
+    shortDescription: "Trained and professional female bouncers for specialized security needs and events.",
+    fullDescription: "We offer highly trained female bouncer security services to cater to events and venues that require a diverse and sensitive security approach. Our female bouncers excel in de-escalation, crowd management, and providing a safe environment, particularly in situations where female guests need specific assistance or security checks.",
+    image: "/by client/female-security.jpeg",
+    features: [
+      "Specialized Security Checks",
+      "De-escalation Skills",
+      "Event Security",
+      "Guest Assistance"
+    ]
+  },
+  {
+    id: 'gunman',
+    slug: 'gunman-security',
+    title: "Gunman Security Service",
+    shortDescription: "Armed gunman security services for high-risk assets and VIP protection.",
+    fullDescription: "Our gunman security services provide highly trained, armed personnel capable of handling extreme security threats. Deployed for high-value asset transit, banking sectors, and high-profile individual protection, our gunmen ensure absolute security through rigorous training and strategic vigilance.",
+    image: "/by client/gunman-seecurity.jpeg",
+    features: [
+      "Armed Protection",
+      "High-Risk Security",
+      "Asset Protection",
+      "Threat Deterrence"
+    ]
+  },
+  {
+    id: 'x-army',
+    slug: 'x-army-man-security',
+    title: "Ex-Army Man Security Service",
+    shortDescription: "Elite security services provided by highly disciplined ex-army personnel.",
+    fullDescription: "For unparalleled security and discipline, our Ex-Army Man Security Services offer veterans who bring their military-grade training, strategic planning, and unmatched dedication to civilian security. Ideal for high-stakes corporate environments, critical infrastructure, and VIP protection, they offer the highest level of vigilance and operational readiness.",
+    image: "/by client/x-army-man-security.jpeg",
+    features: [
+      "Military-Grade Discipline",
+      "Strategic Security Planning",
+      "Elite Protection",
+      "Rapid Threat Assessment"
     ]
   }
 ];
