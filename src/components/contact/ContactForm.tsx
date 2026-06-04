@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Loader2, ArrowRight } from 'lucide-react';
 import { servicesData } from '@/data/servicesData';
+import Script from 'next/script';
 import { upCities } from '@/data/citiesData';
 
 interface ContactFormProps {
@@ -25,6 +26,43 @@ export default function ContactForm({ defaultService = '', defaultCity = '', isM
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
+  const [recaptchaWidgetId, setRecaptchaWidgetId] = useState<number | null>(null);
+  const recaptchaRef = useRef<HTMLDivElement>(null);
+
+  interface GreCaptcha {
+    render: (container: HTMLElement | string, options: Record<string, unknown>) => number;
+    reset: (widgetId?: number) => void;
+  }
+
+  const loadRecaptcha = useCallback(() => {
+    const grecaptcha = (window as unknown as { grecaptcha?: GreCaptcha }).grecaptcha;
+    if (grecaptcha && recaptchaRef.current) {
+      try {
+        recaptchaRef.current.innerHTML = '';
+        const widgetId = grecaptcha.render(recaptchaRef.current, {
+          sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LebwwwtAAAAAMFJ59TpiVnsp9z7zq4mAk1zVTbI',
+          callback: (token: string) => {
+            setRecaptchaToken(token);
+            setErrors((prev) => ({ ...prev, recaptcha: '' }));
+          },
+          'expired-callback': () => {
+            setRecaptchaToken('');
+          }
+        });
+        setRecaptchaWidgetId(widgetId);
+      } catch (err) {
+        console.warn('reCAPTCHA render warning:', err);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const grecaptcha = (window as unknown as { grecaptcha?: GreCaptcha }).grecaptcha;
+    if (grecaptcha) {
+      loadRecaptcha();
+    }
+  }, [loadRecaptcha]);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -43,6 +81,10 @@ export default function ContactForm({ defaultService = '', defaultCity = '', isM
     if (!formData.service) newErrors.service = 'Please select a service';
     if (!formData.city) newErrors.city = 'Please select a location';
 
+    if (!recaptchaToken) {
+      newErrors.recaptcha = 'Please verify that you are not a robot';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -50,9 +92,14 @@ export default function ContactForm({ defaultService = '', defaultCity = '', isM
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    const updatedErrors = { ...errors };
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
+      updatedErrors[name] = '';
     }
+    if (errors.submit) {
+      updatedErrors.submit = '';
+    }
+    setErrors(updatedErrors);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -60,21 +107,50 @@ export default function ContactForm({ defaultService = '', defaultCity = '', isM
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setErrors({});
 
-    // Simulate server response
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    // Save lead locally to demonstrate working functionality
     try {
-      const existingLeads = JSON.parse(localStorage.getItem('mss_leads') || '[]');
-      existingLeads.push({ ...formData, date: new Date().toISOString() });
-      localStorage.setItem('mss_leads', JSON.stringify(existingLeads));
-    } catch (err) {
-      console.error('Failed to save lead', err);
-    }
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken
+        }),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      const data = await response.json();
+
+      if (!response.ok) {
+        setErrors({ submit: data.error || 'Something went wrong. Please try again.' });
+        // Reset reCAPTCHA
+        const grecaptcha = (window as unknown as { grecaptcha?: GreCaptcha }).grecaptcha;
+        if (grecaptcha && recaptchaWidgetId !== null) {
+          grecaptcha.reset(recaptchaWidgetId);
+          setRecaptchaToken('');
+        }
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Save lead locally to demonstrate working functionality
+      try {
+        const existingLeads = JSON.parse(localStorage.getItem('mss_leads') || '[]');
+        existingLeads.push({ ...formData, date: new Date().toISOString() });
+        localStorage.setItem('mss_leads', JSON.stringify(existingLeads));
+      } catch (err) {
+        console.error('Failed to save lead', err);
+      }
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error('Failed to submit inquiry:', err);
+      setErrors({ submit: 'Failed to connect to the server. Please check your network connection.' });
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -130,7 +206,9 @@ export default function ContactForm({ defaultService = '', defaultCity = '', isM
         <button 
           onClick={() => {
             setIsSubmitted(false);
+            setRecaptchaToken('');
             setFormData({ name: '', email: '', phone: '', service: defaultService, city: defaultCity, message: '' });
+            setTimeout(loadRecaptcha, 100);
           }}
           className="btn btn-outline"
           style={{ padding: '12px 24px', fontSize: '0.95rem' }}
@@ -327,6 +405,37 @@ export default function ContactForm({ defaultService = '', defaultCity = '', isM
           </div>
         )}
       </div>
+
+      {/* reCAPTCHA Checkbox */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', margin: '8px 0', minHeight: '78px' }}>
+        <div ref={recaptchaRef}></div>
+        {errors.recaptcha && (
+          <span style={{ color: 'var(--color-secondary-blue)', fontSize: '0.8rem' }}>
+            {errors.recaptcha}
+          </span>
+        )}
+      </div>
+
+      {/* Submission Error Banner */}
+      {errors.submit && (
+        <div style={{
+          padding: '12px 16px',
+          backgroundColor: 'rgba(218, 62, 40, 0.1)',
+          color: 'var(--color-secondary-blue)',
+          borderRadius: '6px',
+          fontSize: '0.9rem',
+          border: '1px solid rgba(218, 62, 40, 0.2)'
+        }}>
+          ⚠️ {errors.submit}
+        </div>
+      )}
+
+      {/* Google reCAPTCHA v2 Script */}
+      <Script 
+        src="https://www.google.com/recaptcha/api.js?render=explicit" 
+        onLoad={loadRecaptcha}
+        strategy="afterInteractive"
+      />
 
       <button 
         type="submit"

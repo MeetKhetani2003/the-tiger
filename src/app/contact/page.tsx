@@ -14,17 +14,17 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageHero 
+      <PageHero
         title="Secure Your Enterprise"
         description="Our command center is operational 24/7. Reach out for a comprehensive threat assessment or immediate deployment requests."
         bgImage="/home-sl3.jpeg"
-        breadcrumbs={[ { label: 'Contact', href: '/contact' } ]}
+        breadcrumbs={[{ label: 'Contact', href: '/contact' }]}
       />
 
       <section className="py-section" style={{ backgroundColor: 'var(--color-bg-primary)', position: 'relative' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '60px', alignItems: 'start' }}>
-            
+
             {/* Left Column: Info & Map */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
               <div>
@@ -56,7 +56,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-heading)', marginBottom: '8px', color: '#fff' }}>Email Correspondence</h4>
-                    <a href="mailto:info@maashivaservices.in" style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-text)', display: 'block', marginBottom: '4px' }}>info@maashivaservices.in</a>
+                    <a href="mailto:info@maashivaservices.in" style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-text)', display: 'block', marginBottom: '4px' }}>maashivaservices@gmail.com</a>
                     <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>Response time: Under 2 Hours</span>
                   </div>
                 </div>
@@ -71,10 +71,10 @@ export default function ContactPage() {
                     <p style={{ fontSize: '1.05rem', lineHeight: '1.5', color: 'var(--color-text)', margin: '0 0 12px 0' }}>
                       Railway Station, 277, Exchange Modha,<br />Shakti Vihar Colony, Faizabad,<br />Uttar Pradesh 224001
                     </p>
-                    <a 
-                      href="https://maps.app.goo.gl/enMoXp57LSQ3Tzjx9" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href="https://maps.app.goo.gl/enMoXp57LSQ3Tzjx9"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-primary-blue)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                     >
                       Open in Google Maps <ExternalLink size={14} />
@@ -104,7 +104,7 @@ export default function ContactPage() {
                 <div style={{ width: '100%', height: '350px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
                   <iframe
                     title="Maa Shiva Services Google Maps"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.85404455434!2d82.1264259!3d26.7820617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a07ef3f2a1b1d%3A0xe54e6ac2f57b6f6f!2sMAA%20SHIVA%20SERIVCES%20PVT.%20LTD!5e0!3m2!1sen!2sin!4v1716768000000!5m2!1sen!2sin"
+                    src="google.com/maps/place/MAA+SHIVA+SERIVCES+PVT.+LTD./@26.7730606,82.1432109,17z/data=!3m1!4b1!4m6!3m5!1s0x399a07422fda518b:0xe966cfe38bbe155f!8m2!3d26.7730558!4d82.1457858!16s%2Fg%2F11l_gyv1vv?entry=tts&g_ep=EgoyMDI2MDUyMC4wIPu8ASoASAFQAw%3D%3D&skid=9ea4e80b-25cb-4027-837a-129334706501"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -144,17 +144,17 @@ export default function ContactPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
             {branchesData.map((branch) => (
-              <div 
-                key={branch.slug} 
-                style={{ 
-                  backgroundColor: 'var(--color-cards)', 
-                  border: '1px solid var(--color-border)', 
-                  borderRadius: '12px', 
+              <div
+                key={branch.slug}
+                style={{
+                  backgroundColor: 'var(--color-cards)',
+                  border: '1px solid var(--color-border)',
+                  borderRadius: '12px',
                   padding: '32px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  transition: 'all 0.3s ease' 
+                  transition: 'all 0.3s ease'
                 }}
                 className="location-link"
               >
@@ -173,10 +173,10 @@ export default function ContactPage() {
                   <a href={`/branches/${branch.slug}`} className="btn btn-primary" style={{ padding: '12px 20px', fontSize: '0.95rem', textAlign: 'center' }}>
                     View Branch Details
                   </a>
-                  <a 
-                    href={branch.mapDirectionUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={branch.mapDirectionUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--color-text-muted)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px', padding: '10px', border: '1px solid var(--color-border)', borderRadius: '4px' }}
                   >
                     Get Directions <ExternalLink size={14} />
