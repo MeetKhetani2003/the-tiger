@@ -104,7 +104,7 @@ export default function ContactPage() {
                 <div style={{ width: '100%', height: '350px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
                   <iframe
                     title="Maa Shiva Services Google Maps"
-                    src="google.com/maps/place/MAA+SHIVA+SERIVCES+PVT.+LTD./@26.7730606,82.1432109,17z/data=!3m1!4b1!4m6!3m5!1s0x399a07422fda518b:0xe966cfe38bbe155f!8m2!3d26.7730558!4d82.1457858!16s%2Fg%2F11l_gyv1vv?entry=tts&g_ep=EgoyMDI2MDUyMC4wIPu8ASoASAFQAw%3D%3D&skid=9ea4e80b-25cb-4027-837a-129334706501"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.10082599657!2d82.1457858!3d26.7730558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a07422fda518b%3A0xe966cfe38bbe155f!2sMAA%20SHIVA%20SERIVCES%20PVT.%20LTD.!5e0!3m2!1sen!2sin!4v1780584414220!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
