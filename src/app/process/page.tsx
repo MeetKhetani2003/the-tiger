@@ -4,8 +4,11 @@ import ContactCTASection from '@/components/home/ContactCTASection';
 import { ClipboardCheck, ShieldAlert, Cpu, Heart, CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
-  title: "Our Process | Maa Shiva Services Pvt. Ltd.",
-  description: "Learn about our systematic selection, rigorous training pipeline, and high-tech command center monitoring systems.",
+  title: "Our Security Screening, Training & Command Center Process | Maa Shiva",
+  description: "Learn about our systematic selection, rigorous training pipeline, and high-tech command center monitoring systems that define our private security company.",
+  alternates: {
+    canonical: 'https://maashivaservices.in/process',
+  }
 };
 
 const pipeline = [
@@ -140,6 +143,31 @@ export default function ProcessPage() {
       </section>
 
       <ContactCTASection />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maashivaservices.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Our Process",
+                "item": "https://maashivaservices.in/process"
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

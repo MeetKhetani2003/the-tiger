@@ -15,6 +15,7 @@ const Navbar = () => {
 
   // Sync hoveredPath with pathname when route changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHoveredPath(pathname);
   }, [pathname]);
 

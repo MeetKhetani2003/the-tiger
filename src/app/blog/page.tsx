@@ -5,7 +5,7 @@ export const metadata = {
   title: 'Security Insights & News | Maa Shiva Services Blog',
   description: 'Read the latest insights, tips, and news on corporate security, event security, bodyguard services, and safety trends across India.',
   alternates: {
-    canonical: 'https://maashivaservices.com/blog',
+    canonical: 'https://maashivaservices.in/blog',
   }
 };
 
@@ -70,6 +70,31 @@ export default function BlogIndexPage() {
           </div>
         </div>
       </section>
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maashivaservices.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://maashivaservices.in/blog"
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

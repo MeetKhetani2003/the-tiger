@@ -2,8 +2,11 @@ import PageHero from '@/components/layout/PageHero';
 import { ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
-  title: 'PSARA Licensed Security Agency | Maa Shiva Services',
-  description: 'Maa Shiva Services is a 100% PSARA compliant security agency operating across Uttar Pradesh. We adhere strictly to the Private Security Agencies Regulation Act.',
+  title: 'PSARA Licensed Security Guard Agency in UP | Maa Shiva Services',
+  description: 'Maa Shiva Services is a 100% PSARA-licensed private security agency operating across Uttar Pradesh. We adhere strictly to the Private Security Agencies Regulation Act.',
+  alternates: {
+    canonical: 'https://maashivaservices.in/psara-license',
+  }
 };
 
 export default function PsaraLicensePage() {
@@ -65,6 +68,31 @@ export default function PsaraLicensePage() {
 
         </div>
       </section>
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maashivaservices.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "PSARA License",
+                "item": "https://maashivaservices.in/psara-license"
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

@@ -1,7 +1,20 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { PhoneCall, MessageCircle } from 'lucide-react';
 
 export default function StickyCTA() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div style={{
       position: 'fixed',
@@ -18,9 +31,11 @@ export default function StickyCTA() {
       boxShadow: '0 -4px 10px rgba(0, 0, 0, 0.1)',
       gap: '16px'
     }}>
-      <span style={{ fontSize: '1rem', fontWeight: 600, display: 'none', '@media (min-width: 768px)': { display: 'inline' } } as any}>
-        Need Immediate Security Assistance?
-      </span>
+      {isDesktop && (
+        <span style={{ fontSize: '1rem', fontWeight: 600 }}>
+          Need Immediate Security Assistance?
+        </span>
+      )}
       
       <div style={{ display: 'flex', gap: '12px' }}>
         <a 

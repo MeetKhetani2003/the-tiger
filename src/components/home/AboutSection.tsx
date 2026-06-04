@@ -60,7 +60,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h4 className="value-title">Our Mission</h4>
-                  <p className="value-desc">To provide highly trained personnel and innovative security solutions that safeguard our clients' assets, people, and reputation.</p>
+                  <p className="value-desc">To provide highly trained personnel and innovative security solutions that safeguard our clients&apos; assets, people, and reputation.</p>
                 </div>
               </motion.div>
               

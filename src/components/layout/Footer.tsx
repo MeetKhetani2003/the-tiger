@@ -23,12 +23,12 @@ const Footer = () => {
           <div className="footer-links">
             <h4 className="footer-heading">Services</h4>
             <ul>
-              <li><Link href="/services">Corporate Security</Link></li>
-              <li><Link href="/services">Industrial Security</Link></li>
-              <li><Link href="/services">Residential Security</Link></li>
-              <li><Link href="/services">Event Security</Link></li>
-              <li><Link href="/services">VIP Protection</Link></li>
-              <li><Link href="/services">Facility Management</Link></li>
+              <li><Link href="/services/corporate-security-guards">Corporate Security</Link></li>
+              <li><Link href="/services/industrial-security-guards">Industrial Security</Link></li>
+              <li><Link href="/services/residential-security-guards">Residential Security</Link></li>
+              <li><Link href="/services/event-security-guards">Event Security</Link></li>
+              <li><Link href="/services/executive-protection-security-guards">VIP Protection</Link></li>
+              <li><Link href="/services/facility-management">Facility Management</Link></li>
             </ul>
           </div>
 
@@ -55,7 +55,7 @@ const Footer = () => {
             </div>
             <div className="contact-item">
               <Mail size={20} className="contact-icon" />
-              <span>info@maashivaservices.com</span>
+              <span>info@maashivaservices.in</span>
             </div>
             <div className="contact-item align-start">
               <MapPin size={24} className="contact-icon" />

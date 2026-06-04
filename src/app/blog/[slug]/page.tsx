@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: 'Post Not Found' };
   }
   
-  const url = `https://maashivaservices.com/blog/${post.slug}`;
+  const url = `https://maashivaservices.in/blog/${post.slug}`;
 
   return {
     title: `${post.title} | Maa Shiva Services Blog`,
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: 'Maa Shiva Services',
       images: [
         {
-          url: `https://maashivaservices.com${post.image}`,
+          url: `https://maashivaservices.in${post.image}`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: [`https://maashivaservices.com${post.image}`],
+      images: [`https://maashivaservices.in${post.image}`],
     }
   };
 }
@@ -104,11 +104,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             "@type": "BlogPosting",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": `https://maashivaservices.com/blog/${post.slug}`
+              "@id": `https://maashivaservices.in/blog/${post.slug}`
             },
             "headline": post.title,
             "description": post.excerpt,
-            "image": `https://maashivaservices.com${post.image}`,
+            "image": `https://maashivaservices.in${post.image}`,
             "author": {
               "@type": "Organization",
               "name": post.author
@@ -118,11 +118,42 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               "name": "Maa Shiva Services Pvt. Ltd.",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://maashivaservices.com/logo.png"
+                "url": "https://maashivaservices.in/logo.png"
               }
             },
             "datePublished": post.date,
             "dateModified": post.date
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maashivaservices.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://maashivaservices.in/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": post.title,
+                "item": `https://maashivaservices.in/blog/${post.slug}`
+              }
+            ]
           })
         }}
       />

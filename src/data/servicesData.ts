@@ -274,5 +274,33 @@ export const servicesData: ServiceType[] = [
       "Elite Protection",
       "Rapid Threat Assessment"
     ]
+  },
+  {
+    id: 'security-guard',
+    slug: 'security-guard-services',
+    title: "Security Guard Services",
+    shortDescription: "Professional, reliable, and police-verified security guard services for corporate, industrial, and residential sectors.",
+    fullDescription: "Maa Shiva Services Pvt. Ltd. provides highly trained, disciplined, and police-verified security guards to safeguard your assets, staff, and facilities. Our security guard services are tailored to meet the dynamic security challenges of modern commercial offices, gated residential complexes, and busy industrial sites.\n\nOur guards are trained in access control, visitor logging, patrolling, fire safety, and emergency response. We conduct rigorous background verification and police checks on every candidate to ensure absolute integrity and reliability.",
+    image: "/sec-guard.jpeg",
+    features: [
+      "Police Verified Personnel",
+      "24/7 Gate & Access Control",
+      "Regular Patrols & Surveillance",
+      "Emergency First-Aid & Fire Training"
+    ]
+  },
+  {
+    id: 'facility-mgmt',
+    slug: 'facility-management',
+    title: "Facility Management",
+    shortDescription: "Comprehensive facility management, housekeeping, and corporate maintenance services to keep operations running smoothly.",
+    fullDescription: "Maa Shiva Services offers integrated facility management services designed to ensure clean, safe, and highly functional environments for corporate offices, retail hubs, healthcare units, and industrial facilities.\n\nFrom professional housekeeping, electrical maintenance, plumbing support, and pantry management to complete building sanitization and waste disposal, we handle all non-core business activities with top-tier efficiency. Our staff is fully compliant with statutory corporate norms.",
+    image: "/facility-sec.jpeg",
+    features: [
+      "Professional Housekeeping",
+      "Electrical & Plumbing Maintenance",
+      "Pantry & Corporate Support Staff",
+      "Statutorily Compliant Operations"
+    ]
   }
 ];

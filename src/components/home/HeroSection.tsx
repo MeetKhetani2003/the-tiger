@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ShieldCheck, Clock, Users } from 'lucide-react';
+import Link from 'next/link';
 import './HeroSection.css';
 
 const slides = [
@@ -80,8 +81,8 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            <a href="/contact" className="btn btn-primary">Request Consultation</a>
-            <a href="/services" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>Our Services</a>
+            <Link href="/contact" className="btn btn-primary">Request Consultation</Link>
+            <Link href="/services" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>Our Services</Link>
           </motion.div>
 
           <motion.div

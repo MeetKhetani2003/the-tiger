@@ -4,8 +4,11 @@ import ContactCTASection from '@/components/home/ContactCTASection';
 import { Target, TrendingUp, HeartHandshake, ShieldCheck } from 'lucide-react';
 
 export const metadata = {
-  title: "Client Testimonials | Maa Shiva Services Pvt. Ltd.",
-  description: "Read verified case studies and client feedback from corporate and industrial giants who rely on our elite protective services.",
+  title: "Client Testimonials & Case Studies | Maa Shiva Security",
+  description: "Read verified case studies, metrics, and testimonials from corporate, industrial, and residential leaders who rely on Maa Shiva Services for elite protection.",
+  alternates: {
+    canonical: 'https://maashivaservices.in/testimonials',
+  }
 };
 
 const stats = [
@@ -137,6 +140,31 @@ export default function TestimonialsPage() {
       </section>
 
       <ContactCTASection />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maashivaservices.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Testimonials",
+                "item": "https://maashivaservices.in/testimonials"
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

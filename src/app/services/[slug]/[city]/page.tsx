@@ -5,6 +5,7 @@ import { upCities } from '@/data/citiesData';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, CheckCircle2, MapPin, AlertTriangle, Building } from 'lucide-react';
 import { generateCityContext, generateServiceFAQs } from '@/utils/seoGenerator';
+import ContactForm from '@/components/contact/ContactForm';
 
 export async function generateStaticParams() {
   const params: { slug: string; city: string }[] = [];
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   // 100% Unique Metadata Generation
   const title = `Top ${service.title} in ${city.name}, UP | Maa Shiva Services`;
   const description = `Looking for reliable ${service.title.toLowerCase()} in ${city.name}, Uttar Pradesh? Maa Shiva Services provides elite protection, 24/7 surveillance, and highly trained guards tailored to ${city.name}'s security landscape.`;
-  const url = `https://maashivaservices.com/services/${service.slug}/${city.slug}`;
+  const url = `https://maashivaservices.in/services/${service.slug}/${city.slug}`;
 
   return {
     title: title,
@@ -57,7 +58,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: 'Maa Shiva Services',
       images: [
         {
-          url: `https://maashivaservices.com${service.image}`,
+          url: `https://maashivaservices.in${service.image}`,
           width: 1200,
           height: 630,
           alt: `Professional ${service.title} deployed in ${city.name}`,
@@ -69,7 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title,
       description,
-      images: [`https://maashivaservices.com${service.image}`],
+      images: [`https://maashivaservices.in${service.image}`],
     }
   };
 }
@@ -189,18 +190,9 @@ export default async function CityServiceDetailPage({ params }: { params: Promis
 
             </div>
 
-            {/* Sidebar */}
+            {/* Sidebar Form */}
             <div style={{ position: 'sticky', top: '120px', height: 'fit-content' }}>
-              <div style={{ backgroundColor: 'var(--color-bg-secondary)', padding: '32px', borderRadius: '8px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)' }}>
-                <h4 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', marginBottom: '16px', color: 'var(--color-text)' }}>Local Inquiry in {city.name}</h4>
-                <p style={{ color: 'var(--color-text-muted)', marginBottom: '24px', fontSize: '0.95rem' }}>
-                  Looking for {service.title.toLowerCase()} in {city.name}? Contact our regional command center for an immediate response.
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <a href="/contact" className="btn btn-primary" style={{ textAlign: 'center', width: '100%' }}>Request Local Quote</a>
-                  <a href="tel:+919415610453" className="btn btn-outline" style={{ textAlign: 'center', width: '100%' }}>Call +91 94156 10453</a>
-                </div>
-              </div>
+              <ContactForm defaultService={service.title} defaultCity={city.name} isMini={true} />
             </div>
           </div>
         </div>
@@ -220,7 +212,7 @@ export default async function CityServiceDetailPage({ params }: { params: Promis
               "provider": {
                 "@type": "LocalBusiness",
                 "name": "Maa Shiva Services Pvt. Ltd.",
-                "url": "https://maashivaservices.com",
+                "url": "https://maashivaservices.in",
                 "telephone": "+919415610453"
               },
               "areaServed": {
@@ -238,7 +230,7 @@ export default async function CityServiceDetailPage({ params }: { params: Promis
                 "areaServed": city.name
               },
               "name": `${service.title} in ${city.name}`,
-              "image": `https://maashivaservices.com${service.image}`
+              "image": `https://maashivaservices.in${service.image}`
             },
             {
               "@context": "https://schema.org",
@@ -248,25 +240,25 @@ export default async function CityServiceDetailPage({ params }: { params: Promis
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://maashivaservices.com"
+                  "item": "https://maashivaservices.in"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Services",
-                  "item": "https://maashivaservices.com/services"
+                  "item": "https://maashivaservices.in/services"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
                   "name": service.title,
-                  "item": `https://maashivaservices.com/services/${service.slug}`
+                  "item": `https://maashivaservices.in/services/${service.slug}`
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
                   "name": city.name,
-                  "item": `https://maashivaservices.com/services/${service.slug}/${city.slug}`
+                  "item": `https://maashivaservices.in/services/${service.slug}/${city.slug}`
                 }
               ]
             },

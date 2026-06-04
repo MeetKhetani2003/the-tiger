@@ -4,8 +4,11 @@ import ContactCTASection from '@/components/home/ContactCTASection';
 import { ShieldAlert, Zap, Clock, ShieldCheck, HelpCircle } from 'lucide-react';
 
 export const metadata = {
-  title: "Services | Maa Shiva Services Pvt. Ltd.",
-  description: "Explore our premium, certified security solutions including corporate guarding, close VIP protection, event monitoring, and facility management.",
+  title: "Private Security Guard Services in Uttar Pradesh | Maa Shiva Services",
+  description: "Explore our premium security services including corporate guarding, armed gunmen, event security, ex-army personnel, bouncers, and facility management services across India.",
+  alternates: {
+    canonical: 'https://maashivaservices.in/services',
+  }
 };
 
 const standards = [
@@ -156,6 +159,31 @@ export default function ServicesPage() {
       </section>
 
       <ContactCTASection />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maashivaservices.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://maashivaservices.in/services"
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

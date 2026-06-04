@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
   
   const title = `Security for ${industry.title} | Top Security Agency in India`;
-  const url = `https://maashivaservices.com/industries/${industry.slug}`;
+  const url = `https://maashivaservices.in/industries/${industry.slug}`;
 
   return {
     title: title,
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url,
       images: [
         {
-          url: `https://maashivaservices.com${industry.image}`,
+          url: `https://maashivaservices.in${industry.image}`,
           width: 1200,
           height: 630,
           alt: industry.title,
@@ -137,7 +137,7 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
             "provider": {
               "@type": "LocalBusiness",
               "name": "Maa Shiva Services Pvt. Ltd.",
-              "url": "https://maashivaservices.com"
+              "url": "https://maashivaservices.in"
             },
             "areaServed": {
               "@type": "Country",
@@ -145,7 +145,7 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
             },
             "description": industry.fullDescription,
             "name": `Security Services for ${industry.title}`,
-            "image": `https://maashivaservices.com${industry.image}`
+            "image": `https://maashivaservices.in${industry.image}`
           })
         }}
       />

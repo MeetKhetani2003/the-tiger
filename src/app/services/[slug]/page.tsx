@@ -5,6 +5,7 @@ import { upCities } from '@/data/citiesData';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, CheckCircle2, MapPin } from 'lucide-react';
 import { generateServiceFAQs } from '@/utils/seoGenerator';
+import ContactForm from '@/components/contact/ContactForm';
 
 export async function generateStaticParams() {
   return servicesData.map((service) => ({
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
   
   const title = `Best ${service.title} Agency in UP & India | Maa Shiva Services`;
-  const url = `https://maashivaservices.com/services/${service.slug}`;
+  const url = `https://maashivaservices.in/services/${service.slug}`;
 
   return {
     title: title,
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: 'Maa Shiva Services',
       images: [
         {
-          url: `https://maashivaservices.com${service.image}`,
+          url: `https://maashivaservices.in${service.image}`,
           width: 1200,
           height: 630,
           alt: service.title,
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title,
       description: `Premium ${service.title.toLowerCase()} provided by Maa Shiva Services. We specialize in robust protection and trained personnel.`,
-      images: [`https://maashivaservices.com${service.image}`],
+      images: [`https://maashivaservices.in${service.image}`],
     }
   };
 }
@@ -134,18 +135,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               </div>
             </div>
 
-            {/* Sidebar */}
+            {/* Sidebar Form */}
             <div style={{ position: 'sticky', top: '120px', height: 'fit-content' }}>
-              <div style={{ backgroundColor: 'var(--color-bg-secondary)', padding: '32px', borderRadius: '8px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)' }}>
-                <h4 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', marginBottom: '16px', color: 'var(--color-text)' }}>Need a Quick Quote?</h4>
-                <p style={{ color: 'var(--color-text-muted)', marginBottom: '24px', fontSize: '0.95rem' }}>
-                  Speak to our command center to discuss your specific requirements for {service.title.toLowerCase()}.
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <a href="/contact" className="btn btn-primary" style={{ textAlign: 'center', width: '100%' }}>Request Assessment</a>
-                  <a href="tel:+919415610453" className="btn btn-outline" style={{ textAlign: 'center', width: '100%' }}>Call +91 94156 10453</a>
-                </div>
-              </div>
+              <ContactForm defaultService={service.title} isMini={true} />
             </div>
           </div>
         </div>
@@ -188,6 +180,38 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
+      <section className="py-section bg-white" style={{ borderTop: '1px solid var(--color-border)' }}>
+        <div className="container">
+          <div className="text-center mb-element">
+            <h2 className="section-heading" style={{ fontSize: '2rem', color: 'var(--color-bg-primary)' }}>Related <span className="text-primary">Security Services</span></h2>
+            <p className="text-lg mx-auto" style={{ maxWidth: '700px', color: 'var(--color-text-muted)' }}>
+              Explore our other specialized protection services designed to deliver military-grade safety across corporate, event, and industrial sectors.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+            {servicesData.filter(s => s.slug !== service.slug).slice(0, 4).map((relService, idx) => (
+              <a 
+                key={relService.slug}
+                href={`/services/${relService.slug}`}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  padding: '24px',
+                  backgroundColor: 'var(--color-cards)',
+                  border: '1px solid var(--color-border)',
+                  borderRadius: '12px',
+                  transition: 'all 0.3s ease'
+                }}
+                className="location-link"
+              >
+                <h4 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', color: '#fff', marginBottom: '12px' }}>{relService.title}</h4>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', lineHeight: '1.5', margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{relService.shortDescription}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <ContactCTASection />
 
       {/* Structured Data for SEO */}
@@ -202,7 +226,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               "provider": {
                 "@type": "LocalBusiness",
                 "name": "Maa Shiva Services Pvt. Ltd.",
-                "url": "https://maashivaservices.com",
+                "url": "https://maashivaservices.in",
                 "telephone": "+919415610453"
               },
               "areaServed": {
@@ -215,7 +239,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 "availability": "https://schema.org/InStock"
               },
               "name": service.title,
-              "image": `https://maashivaservices.com${service.image}`
+              "image": `https://maashivaservices.in${service.image}`
             },
             {
               "@context": "https://schema.org",
@@ -225,19 +249,19 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://maashivaservices.com"
+                  "item": "https://maashivaservices.in"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Services",
-                  "item": "https://maashivaservices.com/services"
+                  "item": "https://maashivaservices.in/services"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
                   "name": service.title,
-                  "item": `https://maashivaservices.com/services/${service.slug}`
+                  "item": `https://maashivaservices.in/services/${service.slug}`
                 }
               ]
             },

@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://maashivaservices.com",
+    url: "https://maashivaservices.in",
     siteName: "Maa Shiva Services Pvt. Ltd.",
-    images: [{ url: "https://maashivaservices.com/logo.png" }],
+    images: [{ url: "https://maashivaservices.in/logo.png" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -52,9 +52,9 @@ export default function RootLayout({
               "@type": ["SecurityService", "LocalBusiness", "Organization"],
               "name": "Maa Shiva Services Pvt. Ltd.",
               "alternateName": "Maa Shiva Security",
-              "url": "https://maashivaservices.com",
-              "logo": "https://maashivaservices.com/logo.png",
-              "image": "https://maashivaservices.com/logo.png",
+              "url": "https://maashivaservices.in",
+              "logo": "https://maashivaservices.in/logo.png",
+              "image": "https://maashivaservices.in/logo.png",
               "description": "Providing world-class security personnel, bouncer services, commando security, and facility management across India.",
               "address": {
                 "@type": "PostalAddress",
@@ -70,7 +70,7 @@ export default function RootLayout({
                 "longitude": "82.1444"
               },
               "telephone": "+919415610453",
-              "email": "info@maashivaservices.com",
+              "email": "info@maashivaservices.in",
               "priceRange": "$$",
               "areaServed": {
                 "@type": "Country",

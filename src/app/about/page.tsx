@@ -4,8 +4,11 @@ import ContactCTASection from '@/components/home/ContactCTASection';
 import { Award, ShieldCheck, Landmark, FileText, CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
-  title: "About Us | Maa Shiva Services Pvt. Ltd.",
-  description: "Learn about our mission, vision, leadership, and institutional compliances that drive our premier security operations.",
+  title: "About Us | Top Security Guard & Bouncer Company in India | Maa Shiva",
+  description: "Learn about Maa Shiva Services Pvt. Ltd., our mission, leadership, and PSARA licensing / ISO compliances that drive our premier security guard services and facility management.",
+  alternates: {
+    canonical: 'https://maashivaservices.in/about',
+  }
 };
 
 const leaders = [
@@ -75,7 +78,7 @@ export default function AboutPage() {
               Since our inception, Maa Shiva Services Pvt. Ltd. has strived to become the <strong>top security agency in India</strong>. Our mission is to provide an unbreachable shield of safety through our highly trained <strong>security guards</strong>, specialized <strong>bouncer services</strong>, and elite <strong>commando security services</strong>. 
             </p>
             <p className="text-lg" style={{ color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
-              We understand that true security requires a blend of physical presence and strategic intelligence. That's why our professional security services extend beyond mere guarding to include comprehensive <strong>corporate security</strong>, <strong>industrial protection</strong>, and <strong>facility management services</strong>. We are committed to setting the highest industry standards for private security across the nation.
+              We understand that true security requires a blend of physical presence and strategic intelligence. That&apos;s why our professional security services extend beyond mere guarding to include comprehensive <strong>corporate security</strong>, <strong>industrial protection</strong>, and <strong>facility management services</strong>. We are committed to setting the highest industry standards for private security across the nation.
             </p>
           </div>
         </div>
@@ -167,6 +170,31 @@ export default function AboutPage() {
       </section>
 
       <ContactCTASection />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maashivaservices.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About Us",
+                "item": "https://maashivaservices.in/about"
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

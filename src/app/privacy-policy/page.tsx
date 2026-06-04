@@ -2,7 +2,10 @@ import PageHero from '@/components/layout/PageHero';
 
 export const metadata = {
   title: 'Privacy Policy | Maa Shiva Services Pvt. Ltd.',
-  description: 'Our Privacy Policy outlines how Maa Shiva Services collects, uses, and protects your data.',
+  description: 'Our Privacy Policy outlines how Maa Shiva Services Pvt. Ltd. collects, uses, protects, and handles your personal data when you interact with our security services.',
+  alternates: {
+    canonical: 'https://maashivaservices.in/privacy-policy',
+  }
 };
 
 export default function PrivacyPolicyPage() {
@@ -53,12 +56,37 @@ export default function PrivacyPolicyPage() {
               If you have any questions about this privacy policy, including any requests to exercise your legal rights, please contact us using the details set out below:
               <br/><br/>
               Maa Shiva Services Pvt. Ltd.<br/>
-              Email: info@maashivaservices.com<br/>
+              Email: info@maashivaservices.in<br/>
               Phone: +91 94156 10453
             </p>
           </div>
         </div>
       </section>
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maashivaservices.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Privacy Policy",
+                "item": "https://maashivaservices.in/privacy-policy"
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }

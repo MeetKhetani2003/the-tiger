@@ -4,8 +4,11 @@ import ContactCTASection from '@/components/home/ContactCTASection';
 import { Layers, ShieldCheck, Map, Users } from 'lucide-react';
 
 export const metadata = {
-  title: "Industries We Protect | Maa Shiva Services Pvt. Ltd.",
-  description: "Specialized security management, risk audit, and protective staffing protocols designed for corporate, industrial, and retail complexes.",
+  title: "Security Services for Corporate, Industrial & Retail Sectors | Maa Shiva",
+  description: "Specialized security management, risk audit, and protective staffing protocols designed for corporate offices, residential, industrial, healthcare, and educational institutes.",
+  alternates: {
+    canonical: 'https://maashivaservices.in/industries',
+  }
 };
 
 const risks = [
@@ -134,6 +137,31 @@ export default function IndustriesPage() {
       </section>
 
       <ContactCTASection />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maashivaservices.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Industries We Protect",
+                "item": "https://maashivaservices.in/industries"
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }
