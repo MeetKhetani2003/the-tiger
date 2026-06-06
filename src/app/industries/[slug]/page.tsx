@@ -82,7 +82,7 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
       
       <section className="py-section" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '60px' }}>
+          <div className="sidebar-grid">
             {/* Main Content */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>

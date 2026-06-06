@@ -6,6 +6,7 @@ import FAQSection from '@/components/home/FAQSection';
 import GalleryCarouselSection from '@/components/home/GalleryCarouselSection';
 import ContactCTASection from '@/components/home/ContactCTASection';
 import ContactForm from '@/components/contact/ContactForm';
+import Link from 'next/link';
 
 export const metadata = {
   title: "Maa Shiva Services Pvt. Ltd. | Best Security Guard Agency in UP & India",
@@ -20,7 +21,20 @@ export const metadata = {
     "Bouncer Services India",
     "Facility Management Services",
     "Maa Shiva Services",
-    "Private Security Agency UP"
+    "Private Security Agency UP",
+    "Security Guard Agency Near Me",
+    "Security Services Near Me",
+    "Best Security Guard Company in India",
+    "PSARA Registered Security Agency",
+    "Private Security Guard Services",
+    "Hire Security Guard",
+    "Hire Bouncers Near Me",
+    "Armed Security Guards Near Me",
+    "Corporate Security Agency",
+    "Industrial Security Guard Services",
+    "Residential Security Guards",
+    "ATM Security Guard Agency",
+    "Security Services Provider"
   ],
   alternates: {
     canonical: 'https://maashivaservices.in',
@@ -68,7 +82,61 @@ export default function Home() {
       <ServicesSection />
       <SLASection />
       <FAQSection />
-      
+
+      {/* Popular Security Queries Section for SEO & User Quick Navigation */}
+      <section className="py-section" style={{ backgroundColor: 'var(--color-bg-secondary)', borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: '40px' }}>
+            <span style={{ fontSize: '0.9rem', color: 'var(--color-primary-blue)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Quick Directory</span>
+            <h2 className="section-heading" style={{ marginTop: '12px', marginBottom: '16px', fontSize: '2.2rem' }}>
+              Popular Security <span className="text-primary">Searches & Services</span>
+            </h2>
+            <p className="text-lg mx-auto" style={{ maxWidth: '650px', color: 'var(--color-text-muted)' }}>
+              Looking for professional protection? We align with the most searched security configurations in India. Click any query to explore our specialized solutions:
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center', maxWidth: '1000px', margin: '0 auto' }}>
+            {[
+              { label: "Security Guard Agency Near Me", href: "/contact" },
+              { label: "Best Security Guard Company in India", href: "/about" },
+              { label: "PSARA Licensed Security Agency", href: "/psara-license" },
+              { label: "Hire Bouncers Near Me", href: "/services/executive-protection-security-guards" },
+              { label: "Armed Security Guard Services", href: "/services/armed-security-guards" },
+              { label: "Corporate Security Agency UP", href: "/services/corporate-security-guards" },
+              { label: "Industrial Guarding Services", href: "/services/industrial-security-guards" },
+              { label: "Residential Security Guards", href: "/services/residential-security-guards" },
+              { label: "Event Crowd Management Services", href: "/services/event-security-guards" },
+              { label: "VIP Bodyguard & Protection", href: "/services/executive-protection-security-guards" },
+              { label: "24/7 Command Center Guarding", href: "/process" },
+              { label: "ATM & Bank Security Guards", href: "/services/atm-security-guards" },
+              { label: "Logistical Hub & Warehouse Security", href: "/services/warehouse-security-guards" },
+              { label: "Private Security Guard Agency", href: "/contact" },
+              { label: "Verified Security Personnel Provider", href: "/about" }
+            ].map((query, idx) => (
+              <Link
+                key={idx}
+                href={query.href}
+                style={{
+                  padding: '10px 20px',
+                  backgroundColor: 'var(--color-cards)',
+                  border: '1px solid var(--color-border)',
+                  borderRadius: '30px',
+                  color: 'var(--color-text)',
+                  fontSize: '0.925rem',
+                  fontWeight: 500,
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none'
+                }}
+                className="search-tag-chip"
+              >
+                🔍 {query.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Premium Lead Generation Section */}
       <section className="py-section bg-white" style={{ borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
         <div className="container">

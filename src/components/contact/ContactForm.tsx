@@ -279,7 +279,7 @@ export default function ContactForm({ defaultService = '', defaultCity = '', isM
         </div>
 
         {/* Contact group - Phone & Email */}
-        <div style={{ display: 'grid', gridTemplateColumns: isMini ? '1fr' : '1fr 1fr', gap: '16px' }}>
+        <div className={isMini ? "form-grid-mini" : "form-grid"}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text)' }}>Phone Number *</label>
             <input 
@@ -326,7 +326,7 @@ export default function ContactForm({ defaultService = '', defaultCity = '', isM
         </div>
 
         {/* Dropdowns group - Service & City */}
-        <div style={{ display: 'grid', gridTemplateColumns: isMini ? '1fr' : '1fr 1fr', gap: '16px' }}>
+        <div className={isMini ? "form-grid-mini" : "form-grid"}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text)' }}>Required Service *</label>
             <select

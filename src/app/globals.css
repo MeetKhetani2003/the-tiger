@@ -157,3 +157,49 @@ a {
   color: var(--color-primary-blue) !important;
   transform: translateY(-2px) !important;
 }
+
+/* Search Chip styles for local SEO directory */
+.search-tag-chip {
+  transition: all 0.3s ease !important;
+}
+
+.search-tag-chip:hover {
+  background-color: var(--color-primary-blue) !important;
+  color: #05080E !important;
+  border-color: var(--color-primary-blue) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--gold-glow);
+}
+
+/* Responsive Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-grid-mini {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive Sidebar-Layout Grid */
+.sidebar-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 60px;
+}
+
+@media (max-width: 1024px) {
+  .sidebar-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

@@ -4,7 +4,7 @@ import { servicesData } from '@/data/servicesData';
 import { upCities } from '@/data/citiesData';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, CheckCircle2, MapPin, AlertTriangle, Building } from 'lucide-react';
-import { generateCityContext, generateServiceFAQs } from '@/utils/seoGenerator';
+import { generateCityContext, generateServiceFAQs, generateCustomCityMetadata } from '@/utils/seoGenerator';
 import ContactForm from '@/components/contact/ContactForm';
 
 export async function generateStaticParams() {
@@ -33,8 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
   
   // 100% Unique Metadata Generation
-  const title = `Top ${service.title} in ${city.name}, UP | Maa Shiva Services`;
-  const description = `Looking for reliable ${service.title.toLowerCase()} in ${city.name}, Uttar Pradesh? Maa Shiva Services provides elite protection, 24/7 surveillance, and highly trained guards tailored to ${city.name}'s security landscape.`;
+  const { title, description } = generateCustomCityMetadata(city.slug, service.title, city.name);
   const url = `https://maashivaservices.in/services/${service.slug}/${city.slug}`;
 
   return {
@@ -85,7 +84,7 @@ export default async function CityServiceDetailPage({ params }: { params: Promis
     notFound();
   }
   
-  const description = `Looking for reliable ${service.title.toLowerCase()} in ${city.name}, Uttar Pradesh? Maa Shiva Services provides elite protection, 24/7 surveillance, and highly trained guards tailored to ${city.name}'s security landscape.`;
+  const { title, description } = generateCustomCityMetadata(city.slug, service.title, city.name);
   
   const heroBanners: Record<string, string> = {
     'corporate-security': '/home-sl1.jpeg',
@@ -115,7 +114,7 @@ export default async function CityServiceDetailPage({ params }: { params: Promis
       
       <section className="py-section" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '60px' }}>
+          <div className="sidebar-grid">
             {/* Main Content */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
