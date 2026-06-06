@@ -138,12 +138,12 @@ export default function Home() {
       </section>
 
       {/* Premium Lead Generation Section */}
-      <section className="py-section bg-white" style={{ borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
+      <section className="py-section" style={{ backgroundColor: 'var(--color-bg-secondary)', borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '60px', alignItems: 'center' }}>
             <div>
               <span style={{ fontSize: '0.9rem', color: 'var(--color-primary-blue)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Free Threat Audit</span>
-              <h2 className="section-heading" style={{ marginTop: '12px', marginBottom: '24px', textAlign: 'left', fontSize: '2.5rem', color: 'var(--color-bg-primary)' }}>
+              <h2 className="section-heading" style={{ marginTop: '12px', marginBottom: '24px', textAlign: 'left', fontSize: '2.5rem', color: 'var(--color-text)' }}>
                 Secure Your Property <span className="text-primary">Today</span>
               </h2>
               <p className="text-lg" style={{ color: 'var(--color-text-muted)', marginBottom: '32px', fontSize: '1.1rem', lineHeight: '1.7' }}>
@@ -153,15 +153,15 @@ export default function Home() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <span style={{ fontSize: '1.25rem' }}>🏆</span>
-                  <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-bg-primary)' }}>PSARA State Police Vetted Agency</span>
+                  <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-text)' }}>PSARA State Police Vetted Agency</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <span style={{ fontSize: '1.25rem' }}>🔒</span>
-                  <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-bg-primary)' }}>ISO 9001:2015 Quality Audited Protocols</span>
+                  <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-text)' }}>ISO 9001:2015 Quality Audited Protocols</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <span style={{ fontSize: '1.25rem' }}>👤</span>
-                  <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-bg-primary)' }}>100% Police Verified & Trained Guards</span>
+                  <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-text)' }}>100% Police Verified & Trained Guards</span>
                 </div>
               </div>
             </div>

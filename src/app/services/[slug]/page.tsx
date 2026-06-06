@@ -180,10 +180,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      <section className="py-section bg-white" style={{ borderTop: '1px solid var(--color-border)' }}>
+      <section className="py-section" style={{ backgroundColor: 'var(--color-bg-secondary)', borderTop: '1px solid var(--color-border)' }}>
         <div className="container">
           <div className="text-center mb-element">
-            <h2 className="section-heading" style={{ fontSize: '2rem', color: 'var(--color-bg-primary)' }}>Related <span className="text-primary">Security Services</span></h2>
+            <h2 className="section-heading" style={{ fontSize: '2rem', color: 'var(--color-text)' }}>Related <span className="text-primary">Security Services</span></h2>
             <p className="text-lg mx-auto" style={{ maxWidth: '700px', color: 'var(--color-text-muted)' }}>
               Explore our other specialized protection services designed to deliver military-grade safety across corporate, event, and industrial sectors.
             </p>
