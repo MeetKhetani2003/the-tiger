@@ -129,13 +129,13 @@ const Footer = () => {
             <div className="contact-item">
               <Phone size={20} className="contact-icon" />
               <div>
-                <span>+91 94156 10453</span><br/>
+                <span>+91 94156 10453</span><br />
                 <span style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>24/7 Command Center</span>
               </div>
             </div>
             <div className="contact-item">
               <Mail size={20} className="contact-icon" />
-              <span>info@maashivaservices.in</span>
+              <span>mssgroupsec@gmail.com</span>
             </div>
             <div className="contact-item align-start">
               <MapPin size={24} className="contact-icon" />
@@ -153,7 +153,7 @@ const Footer = () => {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px', alignItems: 'center' }}>
               {featuredCities.map((city, idx) => (
                 <span key={city.slug} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <Link 
+                  <Link
                     href={`/services/security-guard-services/${city.slug}`}
                     style={{ color: '#fff', fontSize: '1.05rem', fontWeight: 600, transition: 'color 0.3s ease' }}
                     className="city-link"
@@ -176,7 +176,7 @@ const Footer = () => {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 12px', alignItems: 'center' }}>
               {otherCities.map((city, idx) => (
                 <span key={city.slug} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <Link 
+                  <Link
                     href={`/services/security-guard-services/${city.slug}`}
                     style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem', transition: 'color 0.3s ease' }}
                     className="city-link"
@@ -191,7 +191,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="footer-bottom mt-element">
           <p>&copy; {new Date().getFullYear()} Maa Shiva Services Pvt. Ltd. All rights reserved.</p>
           <div className="footer-legal">
