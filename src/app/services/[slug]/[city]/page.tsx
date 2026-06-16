@@ -197,6 +197,89 @@ export default async function CityServiceDetailPage({ params }: { params: Promis
         </div>
       </section>
 
+      {/* Dynamic Cross-Linking Section for SEO Crawl Mesh */}
+      <section className="py-section bg-white" style={{ borderTop: '1px solid var(--color-border)', backgroundColor: '#ffffff' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '48px' }}>
+            
+            {/* Other services in this city */}
+            <div>
+              <h3 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '16px' }}>
+                Other Premium Security Services in <span className="text-primary">{city.name}</span>
+              </h3>
+              <p style={{ color: 'var(--color-text-muted)', marginBottom: '24px' }}>
+                Explore our full suite of professional protection and facility management services available in {city.name}.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
+                {servicesData.filter(s => s.slug !== service.slug).map((s) => (
+                  <a
+                    key={s.slug}
+                    href={`/services/${s.slug}/${city.slug}`}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      padding: '16px 20px',
+                      backgroundColor: 'var(--color-bg-secondary)',
+                      border: '1px solid var(--color-border)',
+                      borderRadius: '8px',
+                      textDecoration: 'none',
+                      transition: 'all 0.2s ease-in-out'
+                    }}
+                    className="location-link"
+                  >
+                    <span style={{ fontWeight: 600, color: 'var(--color-text)', fontSize: '1.05rem', marginBottom: '4px' }}>
+                      {s.title}
+                    </span>
+                    <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
+                      Available in {city.name}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Same service in nearby cities */}
+            <div>
+              <h3 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '16px' }}>
+                {service.title} in <span className="text-primary">Neighboring Districts</span>
+              </h3>
+              <p style={{ color: 'var(--color-text-muted)', marginBottom: '24px' }}>
+                We provide security guard deployments across all major regions in the {city.division} Division and surrounding areas.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
+                {upCities
+                  .filter(c => c.slug !== city.slug && (c.division === city.division || upCities.filter(x => x.division === city.division).length < 5))
+                  .slice(0, 8)
+                  .map((c) => (
+                    <a
+                      key={c.slug}
+                      href={`/services/${service.slug}/${c.slug}`}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: '16px',
+                        backgroundColor: 'var(--color-bg-secondary)',
+                        border: '1px solid var(--color-border)',
+                        borderRadius: '8px',
+                        color: 'var(--color-text)',
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        transition: 'all 0.2s ease-in-out'
+                      }}
+                      className="location-link"
+                    >
+                      <MapPin size={16} />
+                      {c.name}
+                    </a>
+                  ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <ContactCTASection />
 
       {/* Advanced Multi-Schema Integration */}

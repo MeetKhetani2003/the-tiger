@@ -1,68 +1,85 @@
 export interface CityType {
   name: string;
   slug: string;
+  division: string;
 }
 
 export const upCities: CityType[] = [
-  // Major Cities (Existing)
-  { name: 'Lucknow', slug: 'lucknow' },
-  { name: 'Kanpur', slug: 'kanpur' },
-  { name: 'Agra', slug: 'agra' },
-  { name: 'Meerut', slug: 'meerut' },
-  { name: 'Bareilly', slug: 'bareilly' },
-  { name: 'Aligarh', slug: 'aligarh' },
-  { name: 'Moradabad', slug: 'moradabad' },
-  { name: 'Saharanpur', slug: 'saharanpur' },
-  { name: 'Noida', slug: 'noida' },
-  { name: 'Ghaziabad', slug: 'ghaziabad' },
-  { name: 'Jhansi', slug: 'jhansi' },
-  { name: 'Mathura', slug: 'mathura' },
-  { name: 'Firozabad', slug: 'firozabad' },
-  { name: 'Muzaffarnagar', slug: 'muzaffarnagar' },
+  // Lucknow Division
+  { name: 'Lucknow', slug: 'lucknow', division: 'Lucknow' },
+  { name: 'Barabanki', slug: 'barabanki', division: 'Lucknow' },
+  
+  // Kanpur Division
+  { name: 'Kanpur', slug: 'kanpur', division: 'Kanpur' },
+  
+  // Meerut Division
+  { name: 'Meerut', slug: 'meerut', division: 'Meerut' },
+  { name: 'Noida', slug: 'noida', division: 'Meerut' },
+  { name: 'Ghaziabad', slug: 'ghaziabad', division: 'Meerut' },
+  
+  // Bareilly Division
+  { name: 'Bareilly', slug: 'bareilly', division: 'Bareilly' },
+  
+  // Aligarh Division
+  { name: 'Aligarh', slug: 'aligarh', division: 'Aligarh' },
+  
+  // Moradabad Division
+  { name: 'Moradabad', slug: 'moradabad', division: 'Moradabad' },
+  
+  // Saharanpur Division
+  { name: 'Saharanpur', slug: 'saharanpur', division: 'Saharanpur' },
+  { name: 'Muzaffarnagar', slug: 'muzaffarnagar', division: 'Saharanpur' },
+  
+  // Jhansi Division
+  { name: 'Jhansi', slug: 'jhansi', division: 'Jhansi' },
+  
+  // Agra Division
+  { name: 'Agra', slug: 'agra', division: 'Agra' },
+  { name: 'Mathura', slug: 'mathura', division: 'Agra' },
+  { name: 'Firozabad', slug: 'firozabad', division: 'Agra' },
 
   // Ayodhya Division
-  { name: 'Ayodhya', slug: 'ayodhya' },
-  { name: 'Ambedkar Nagar', slug: 'ambedkar-nagar' },
-  { name: 'Amethi', slug: 'amethi' },
-  { name: 'Barabanki', slug: 'barabanki' },
-  { name: 'Sultanpur', slug: 'sultanpur' },
+  { name: 'Ayodhya', slug: 'ayodhya', division: 'Ayodhya' },
+  { name: 'Ambedkar Nagar', slug: 'ambedkar-nagar', division: 'Ayodhya' },
+  { name: 'Amethi', slug: 'amethi', division: 'Ayodhya' },
+  { name: 'Sultanpur', slug: 'sultanpur', division: 'Ayodhya' },
   
   // Gorakhpur Division
-  { name: 'Gorakhpur', slug: 'gorakhpur' },
-  { name: 'Deoria', slug: 'deoria' },
-  { name: 'Kushinagar', slug: 'kushinagar' },
-  { name: 'Maharajganj', slug: 'maharajganj' },
+  { name: 'Gorakhpur', slug: 'gorakhpur', division: 'Gorakhpur' },
+  { name: 'Deoria', slug: 'deoria', division: 'Gorakhpur' },
+  { name: 'Kushinagar', slug: 'kushinagar', division: 'Gorakhpur' },
+  { name: 'Maharajganj', slug: 'maharajganj', division: 'Gorakhpur' },
 
   // Varanasi Division
-  { name: 'Varanasi', slug: 'varanasi' },
-  { name: 'Chandauli', slug: 'chandauli' },
-  { name: 'Ghazipur', slug: 'ghazipur' },
-  { name: 'Jaunpur', slug: 'jaunpur' },
+  { name: 'Varanasi', slug: 'varanasi', division: 'Varanasi' },
+  { name: 'Chandauli', slug: 'chandauli', division: 'Varanasi' },
+  { name: 'Ghazipur', slug: 'ghazipur', division: 'Varanasi' },
+  { name: 'Jaunpur', slug: 'jaunpur', division: 'Varanasi' },
 
   // Azamgarh Division
-  { name: 'Azamgarh', slug: 'azamgarh' },
-  { name: 'Ballia', slug: 'ballia' },
-  { name: 'Mau', slug: 'mau' },
+  { name: 'Azamgarh', slug: 'azamgarh', division: 'Azamgarh' },
+  { name: 'Ballia', slug: 'ballia', division: 'Azamgarh' },
+  { name: 'Mau', slug: 'mau', division: 'Azamgarh' },
 
   // Basti Division
-  { name: 'Basti', slug: 'basti' },
-  { name: 'Sant Kabir Nagar', slug: 'sant-kabir-nagar' },
-  { name: 'Siddharth Nagar', slug: 'siddharth-nagar' },
+  { name: 'Basti', slug: 'basti', division: 'Basti' },
+  { name: 'Sant Kabir Nagar', slug: 'sant-kabir-nagar', division: 'Basti' },
+  { name: 'Siddharth Nagar', slug: 'siddharth-nagar', division: 'Basti' },
 
   // Devipatan Division
-  { name: 'Gonda', slug: 'gonda' },
-  { name: 'Bahraich', slug: 'bahraich' },
-  { name: 'Balrampur', slug: 'balrampur' },
-  { name: 'Shravasti', slug: 'shravasti' },
+  { name: 'Gonda', slug: 'gonda', division: 'Devipatan' },
+  { name: 'Bahraich', slug: 'bahraich', division: 'Devipatan' },
+  { name: 'Balrampur', slug: 'balrampur', division: 'Devipatan' },
+  { name: 'Shravasti', slug: 'shravasti', division: 'Devipatan' },
 
   // Prayagraj Division
-  { name: 'Prayagraj', slug: 'prayagraj' },
-  { name: 'Kaushambi', slug: 'kaushambi' },
-  { name: 'Pratapgarh', slug: 'pratapgarh' },
-  { name: 'Fatehpur', slug: 'fatehpur' },
+  { name: 'Prayagraj', slug: 'prayagraj', division: 'Prayagraj' },
+  { name: 'Kaushambi', slug: 'kaushambi', division: 'Prayagraj' },
+  { name: 'Pratapgarh', slug: 'pratapgarh', division: 'Prayagraj' },
+  { name: 'Fatehpur', slug: 'fatehpur', division: 'Prayagraj' },
 
   // Mirzapur Division
-  { name: 'Mirzapur', slug: 'mirzapur' },
-  { name: 'Sonbhadra', slug: 'sonbhadra' },
-  { name: 'Bhadohi', slug: 'bhadohi' }
+  { name: 'Mirzapur', slug: 'mirzapur', division: 'Mirzapur' },
+  { name: 'Sonbhadra', slug: 'sonbhadra', division: 'Mirzapur' },
+  { name: 'Bhadohi', slug: 'bhadohi', division: 'Mirzapur' }
 ];

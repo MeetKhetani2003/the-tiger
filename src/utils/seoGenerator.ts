@@ -179,6 +179,14 @@ const customCitiesSEO: Record<string, CustomCitySEO> = {
   }
 };
 
+const getDeterministicIndex = (str: string, max: number): number => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return Math.abs(hash) % max;
+};
+
 export const generateCityContext = (cityName: string, serviceName: string) => {
   const cityKey = cityName.toLowerCase().replace(/\s+/g, '-');
   const customSEO = customCitiesSEO[cityKey];
@@ -192,26 +200,72 @@ export const generateCityContext = (cityName: string, serviceName: string) => {
     };
   }
 
-  // Default generic context
-  const risks = [
-    `Rising commercial property disputes in ${cityName}`,
-    `Increased footfall in ${cityName}'s major business districts`,
-    `Vulnerability of industrial assets in ${cityName} outskirts`,
-    `High-profile event crowd management in ${cityName}`
+  // Deterministic seed based on city and service name
+  const seedKey = `${cityName}-${serviceName}`;
+  const introIdx = getDeterministicIndex(seedKey + '-intro', 4);
+  const risksIdx = getDeterministicIndex(seedKey + '-risks', 3);
+  const approachIdx = getDeterministicIndex(seedKey + '-approach', 3);
+
+  const introTemplates = [
+    `As ${cityName} continues to expand its economic and residential footprint in Uttar Pradesh, the demand for highly trained ${serviceName.toLowerCase()} has reached an all-time high. Local businesses and residential welfare associations in ${cityName} are increasingly recognizing that generic security measures are no longer sufficient.`,
+    `With rapid commercialization and urban development across the ${cityName} region, securing valuable assets and ensuring personal safety requires professional oversight. Maa Shiva Services offers premium, PSARA-compliant ${serviceName.toLowerCase()} tailored specifically to the unique demographic landscape of ${cityName}.`,
+    `The security challenges in ${cityName} have evolved alongside its rapid growth. Standard security measures often fall short, which is why commercial enterprises, residential complexes, and event organizers in ${cityName} are turning to Maa Shiva Services for specialized, military-grade ${serviceName.toLowerCase()}.`,
+    `As a major hub in Uttar Pradesh, ${cityName} experiences unique security demands ranging from crowd management to asset protection. We deploy highly trained personnel equipped to provide top-tier ${serviceName.toLowerCase()} across all commercial and residential zones of ${cityName}.`
   ];
 
-  const needs = [
-    `Stringent access control for ${cityName} corporate offices`,
-    `24/7 surveillance for ${cityName} residential complexes`,
-    `Rapid response deployment across ${cityName}`,
-    `Specialized guard training localized to ${cityName} dialects and norms`
+  const riskTemplatesPool = [
+    [
+      `Rising commercial property disputes and unauthorized trespass in ${cityName}`,
+      `Increased footfall and logistics security challenges in ${cityName}'s major business districts`,
+      `Vulnerability of industrial assets and warehouse yards on the outskirts of ${cityName}`,
+      `High-profile event crowd control and access management challenges in ${cityName}`
+    ],
+    [
+      `Theft and pilferage risks in high-density retail markets and showrooms across ${cityName}`,
+      `Vulnerability of commercial office spaces and IT complexes in ${cityName} to security breaches`,
+      `Asset loss and vandalism in residential welfare associations (RWAs) in ${cityName}`,
+      `Logistical shipping delays due to unmonitored gate entry and exit points in ${cityName}`
+    ],
+    [
+      `Security vulnerabilities at remote banking sites, cash counters, and showrooms in ${cityName}`,
+      `Labor coordination and access management issues at construction and industrial sites in ${cityName}`,
+      `Unmanaged visitor flow and vehicle parking disputes in busy commercial hubs of ${cityName}`,
+      `Fire watch and safety hazards in textile or raw material warehouses in the ${cityName} district`
+    ]
+  ];
+
+  const needTemplatesPool = [
+    [
+      `Stringent access control for ${cityName} corporate offices`,
+      `24/7 surveillance for ${cityName} residential complexes`,
+      `Rapid response deployment across ${cityName}`,
+      `Specialized guard training localized to ${cityName} dialects and norms`
+    ],
+    [
+      `Vigilant retail security guards to handle crowd control and shoplifting prevention in ${cityName}`,
+      `Access control and gatekeeping to manage high visitor flow in schools and offices in ${cityName}`,
+      `24/7 mobile patrol teams covering commercial and residential zones of ${cityName}`,
+      `Discreet and certified VIP/executive protection bouncers for events in ${cityName}`
+    ],
+    [
+      `Factory gate-check guards to verify visitor and commercial vehicle logs in ${cityName}`,
+      `Industrial safety compliance guards trained in handling fire hazards in ${cityName}`,
+      `Armed security guards for secure banking operations and private installations in ${cityName}`,
+      `Incident report logging and real-time coordination with managers in ${cityName}`
+    ]
+  ];
+
+  const approachTemplates = [
+    `Maa Shiva Services understands the unique topography and demographic challenges of ${cityName}. Our personnel are not just trained in advanced security protocols, but are also deeply familiar with ${cityName}'s local environment. We provide:`,
+    `Our security solutions in ${cityName} are designed with local intelligence and operational excellence in mind. We deploy specialized security personnel who are familiar with the geography and customs of ${cityName}, providing:`,
+    `We adapt our security methodologies to align with ${cityName}'s rapid developmental changes. By blending modern technology, PSARA standards, and locally aware guards, we deliver:`
   ];
 
   return {
-    risks,
-    needs,
-    intro: `As ${cityName} continues to expand its economic and residential footprint in Uttar Pradesh, the demand for highly trained ${serviceName.toLowerCase()} has reached an all-time high. Local businesses and residential welfare associations in ${cityName} are increasingly recognizing that generic security measures are no longer sufficient.`,
-    approach: `Maa Shiva Services understands the unique topography and demographic challenges of ${cityName}. Our personnel are not just trained in advanced security protocols, but are also deeply familiar with ${cityName}'s local environment. We provide:`
+    risks: riskTemplatesPool[risksIdx],
+    needs: needTemplatesPool[risksIdx], // Sync risks and needs pools
+    intro: introTemplates[introIdx],
+    approach: approachTemplates[approachIdx]
   };
 };
 
