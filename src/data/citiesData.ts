@@ -2,6 +2,7 @@ export interface CityType {
   name: string;
   slug: string;
   division: string;
+  alias?: string;
 }
 
 export const upCities: CityType[] = [
@@ -39,7 +40,7 @@ export const upCities: CityType[] = [
   { name: 'Firozabad', slug: 'firozabad', division: 'Agra' },
 
   // Ayodhya Division
-  { name: 'Ayodhya', slug: 'ayodhya', division: 'Ayodhya' },
+  { name: 'Ayodhya', slug: 'ayodhya', division: 'Ayodhya', alias: 'Faizabad' },
   { name: 'Ambedkar Nagar', slug: 'ambedkar-nagar', division: 'Ayodhya' },
   { name: 'Amethi', slug: 'amethi', division: 'Ayodhya' },
   { name: 'Sultanpur', slug: 'sultanpur', division: 'Ayodhya' },
@@ -73,7 +74,7 @@ export const upCities: CityType[] = [
   { name: 'Shravasti', slug: 'shravasti', division: 'Devipatan' },
 
   // Prayagraj Division
-  { name: 'Prayagraj', slug: 'prayagraj', division: 'Prayagraj' },
+  { name: 'Prayagraj', slug: 'prayagraj', division: 'Prayagraj', alias: 'Allahabad' },
   { name: 'Kaushambi', slug: 'kaushambi', division: 'Prayagraj' },
   { name: 'Pratapgarh', slug: 'pratapgarh', division: 'Prayagraj' },
   { name: 'Fatehpur', slug: 'fatehpur', division: 'Prayagraj' },

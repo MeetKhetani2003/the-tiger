@@ -45,6 +45,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       `Security agency in ${city.name} UP`, 
       `Hire ${service.title} ${city.name}`,
       `Private security company ${city.name}`,
+      `security guard in ${city.name.toLowerCase()}`,
+      `guard service in ${city.name.toLowerCase()}`,
+      `security services in ${city.name.toLowerCase()}`,
+      `best security agency in ${city.name.toLowerCase()}`,
+      ...(city.alias ? [
+        `${service.title} in ${city.alias}`,
+        `Best ${service.title} in ${city.alias}`,
+        `Security agency in ${city.alias} UP`,
+        `Hire ${service.title} ${city.alias}`,
+        `Private security company ${city.alias}`,
+        `security guard in ${city.alias.toLowerCase()}`,
+        `guard service in ${city.alias.toLowerCase()}`,
+        `security services in ${city.alias.toLowerCase()}`,
+        `best security agency in ${city.alias.toLowerCase()}`
+      ] : []),
       "Maa Shiva Services"
     ],
     alternates: {

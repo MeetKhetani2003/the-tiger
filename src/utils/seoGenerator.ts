@@ -306,13 +306,21 @@ export const generateServiceFAQs = (serviceName: string, cityName?: string) => {
   return faqs;
 };
 
+import { upCities } from '@/data/citiesData';
+
 export const generateCustomCityMetadata = (citySlug: string, serviceTitle: string, cityName: string) => {
   const serviceLower = serviceTitle.toLowerCase();
+  const cityObj = upCities.find(c => c.slug === citySlug);
+  const cityAlias = cityObj?.alias;
   
   const metadataMap: Record<string, { title: string; description: string }> = {
     ayodhya: {
       title: `Best ${serviceTitle} in Ayodhya (Faizabad) | Security Agency`,
       description: `Need professional ${serviceLower} in Ayodhya or Faizabad, UP? Maa Shiva Services offers PSARA-licensed guards and bouncers near Saket College and Faizabad Railway Station. Contact us for a free audit.`
+    },
+    prayagraj: {
+      title: `Best ${serviceTitle} in Prayagraj (Allahabad) | Security Agency`,
+      description: `Need professional ${serviceLower} in Prayagraj or Allahabad, UP? Maa Shiva Services offers PSARA-certified security guards and elite bouncers. Contact us today.`
     },
     lucknow: {
       title: `Best ${serviceTitle} in Lucknow | Security Guard Company`,
@@ -356,8 +364,16 @@ export const generateCustomCityMetadata = (citySlug: string, serviceTitle: strin
     return metadataMap[citySlug];
   }
 
+  const titleText = cityAlias 
+    ? `Top ${serviceTitle} in ${cityName} (${cityAlias}), UP | Maa Shiva Services`
+    : `Top ${serviceTitle} in ${cityName}, UP | Maa Shiva Services`;
+
+  const descText = cityAlias
+    ? `Looking for reliable ${serviceLower} in ${cityName} or ${cityAlias}, Uttar Pradesh? Maa Shiva Services provides elite protection, 24/7 surveillance, and highly trained guards.`
+    : `Looking for reliable ${serviceLower} in ${cityName}, Uttar Pradesh? Maa Shiva Services provides elite protection, 24/7 surveillance, and highly trained guards tailored to ${cityName}'s security landscape.`;
+
   return {
-    title: `Top ${serviceTitle} in ${cityName}, UP | Maa Shiva Services`,
-    description: `Looking for reliable ${serviceLower} in ${cityName}, Uttar Pradesh? Maa Shiva Services provides elite protection, 24/7 surveillance, and highly trained guards tailored to ${cityName}'s security landscape.`
+    title: titleText,
+    description: descText
   };
 };
