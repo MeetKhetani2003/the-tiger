@@ -1,7 +1,7 @@
 import PageHero from '@/components/layout/PageHero';
 import ContactCTASection from '@/components/home/ContactCTASection';
 import { servicesData } from '@/data/servicesData';
-import { upCities } from '@/data/citiesData';
+import { upCities, primaryCities } from '@/data/citiesData';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, CheckCircle2, MapPin, AlertTriangle, Building } from 'lucide-react';
 import { generateCityContext, generateServiceFAQs, generateCustomCityMetadata } from '@/utils/seoGenerator';
@@ -256,15 +256,13 @@ export default async function CityServiceDetailPage({ params }: { params: Promis
             {/* Same service in nearby cities */}
             <div>
               <h3 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text)', marginBottom: '16px' }}>
-                {service.title} in <span className="text-primary">Neighboring Districts</span>
+                Primary Security Hubs & <span className="text-primary">Service Cities</span>
               </h3>
               <p style={{ color: 'var(--color-text-muted)', marginBottom: '24px' }}>
-                We provide security guard deployments across all major regions in the {city.division} Division and surrounding areas.
+                We provide security guard deployments across all major regions in the Ayodhya Division and surrounding areas.
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
-                {upCities
-                  .filter(c => c.slug !== city.slug && (c.division === city.division || upCities.filter(x => x.division === city.division).length < 5))
-                  .slice(0, 8)
+                {primaryCities
                   .map((c) => (
                     <a
                       key={c.slug}

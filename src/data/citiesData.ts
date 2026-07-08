@@ -5,6 +5,19 @@ export interface CityType {
   alias?: string;
 }
 
+export const primaryCities: CityType[] = [
+  { name: 'Faizabad / Ayodhya', slug: 'ayodhya', division: 'Ayodhya' },
+  { name: 'Basti', slug: 'basti', division: 'Basti' },
+  { name: 'Sant Kabir Nagar', slug: 'sant-kabir-nagar', division: 'Basti' },
+  { name: 'Gorakhpur', slug: 'gorakhpur', division: 'Gorakhpur' },
+  { name: 'Gonda', slug: 'gonda', division: 'Devipatan' },
+  { name: 'Ambedkar Nagar', slug: 'ambedkar-nagar', division: 'Ayodhya' },
+  { name: 'Sultanpur', slug: 'sultanpur', division: 'Ayodhya' },
+  { name: 'Barabanki', slug: 'barabanki', division: 'Lucknow' },
+  { name: 'Lucknow', slug: 'lucknow', division: 'Lucknow' },
+  { name: 'Amethi', slug: 'amethi', division: 'Ayodhya' },
+];
+
 export const upCities: CityType[] = [
   // Lucknow Division
   { name: 'Lucknow', slug: 'lucknow', division: 'Lucknow' },

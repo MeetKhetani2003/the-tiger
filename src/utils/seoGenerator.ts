@@ -263,7 +263,7 @@ export const generateCityContext = (cityName: string, serviceName: string) => {
 
   return {
     risks: riskTemplatesPool[risksIdx],
-    needs: needTemplatesPool[risksIdx], // Sync risks and needs pools
+    needs: needTemplatesPool[risksIdx], 
     intro: introTemplates[introIdx],
     approach: approachTemplates[approachIdx]
   };
