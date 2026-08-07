@@ -139,7 +139,7 @@ const Footer = () => {
             </div>
             <div className="contact-item align-start">
               <MapPin size={24} className="contact-icon" />
-              <span>Railway Station, 277, Exchange Modha, Shakti Vihar Colony, Faizabad, Uttar Pradesh 224001</span>
+              <span>Railway Station, 277, Exchange Modha, Shakti Vihar Colony, Ayodhya, Uttar Pradesh 224001</span>
             </div>
           </div>
         </div>

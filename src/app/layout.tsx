@@ -59,7 +59,7 @@ export default function RootLayout({
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Railway Station, 277, Exchange Modha, Shakti Vihar Colony",
-                "addressLocality": "Faizabad",
+                "addressLocality": "Ayodhya",
                 "addressRegion": "Uttar Pradesh",
                 "addressCountry": "IN",
                 "postalCode": "224001"

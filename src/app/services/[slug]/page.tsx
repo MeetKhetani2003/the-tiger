@@ -1,7 +1,7 @@
 import PageHero from '@/components/layout/PageHero';
 import ContactCTASection from '@/components/home/ContactCTASection';
 import { servicesData } from '@/data/servicesData';
-import { upCities } from '@/data/citiesData';
+import { primaryCities } from '@/data/citiesData';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, CheckCircle2, MapPin } from 'lucide-react';
 import { generateServiceFAQs } from '@/utils/seoGenerator';
@@ -153,7 +153,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           </div>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
-            {upCities.map((city, idx) => (
+            {primaryCities.map((city, idx) => (
               <a 
                 key={idx} 
                 href={`/services/${service.slug}/${city.slug}`}

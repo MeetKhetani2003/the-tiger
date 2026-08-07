@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { servicesData } from '@/data/servicesData';
-import { upCities } from '@/data/citiesData';
+import { primaryCities } from '@/data/citiesData';
 import { branchesData } from '@/data/branchesData';
 
 const baseUrl = 'https://maashivaservices.in';
@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 3. City Pages
   const cityPages: MetadataRoute.Sitemap = [];
   servicesData.forEach((service) => {
-    upCities.forEach((city) => {
+    primaryCities.forEach((city) => {
       cityPages.push({
         url: `${baseUrl}/services/${service.slug}/${city.slug}`,
         lastModified: new Date(),
